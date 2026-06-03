@@ -1,0 +1,42 @@
+name: Build React App
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Build React dist
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build
+        run: npm run build
+
+      - name: Show build output
+        run: |
+          echo "=== dist/ contents ==="
+          ls -lh dist/
+          echo "=== dist/assets/ ==="
+          ls -lh dist/assets/ 2>/dev/null || echo "no assets folder"
+
+      - name: Upload dist artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: react-dist-${{ github.sha }}
+          path: dist/
+          retention-days: 30

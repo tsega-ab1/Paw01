@@ -2,7 +2,7 @@
 // PAW API — all backend calls
 // ═══════════════════════════════════════════
 
-const BASE = '/api'
+const BASE = ((typeof window !== 'undefined' && window.PAW_API_BASE) || 'http://localhost:3000') + '/api'
 
 async function req(method, path, body) {
   const opts = {
