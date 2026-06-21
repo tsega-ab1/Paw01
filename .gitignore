@@ -1,4 +1,8 @@
-node_modules/
-paw-app/
+*.local
 *.zip
+.DS_Store
+.env
+dist/
+node_modules/
 nohup.out
+paw-app/
