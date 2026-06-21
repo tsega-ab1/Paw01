@@ -1,0 +1,5 @@
+paw-data.json
+node_modules/
+paw-app/
+*.zip
+nohup.out
