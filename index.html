@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>PAW — Personal Routine OS</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600;700&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body, #root { height: 100%; width: 100%; overflow: hidden; }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: #f6fbf2;
+      -webkit-tap-highlight-color: transparent;
+      -webkit-font-smoothing: antialiased;
+    }
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+      font-size: 22px;
+      user-select: none;
+    }
+    .fill-icon { font-variation-settings: 'FILL' 1, 'wght' 300, 'GRAD' 0, 'opsz' 24; }
+    ::-webkit-scrollbar { display: none; }
+    scrollbar-width: none;
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+  <script type="module" src="/src/main.jsx"></script>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       PAW JS Bridge — Flutter ↔ React native communication
+       Auto-injected. Do not remove.
+  ════════════════════════════════════════════════════════════════ -->
+  <script>
+  // ── Detect native environment ─────────────────────────────────────
+  const IS_NATIVE = typeof window.flutter_inappwebview !== 'undefined'
+
+  // ── Core: Web → Flutter message sender ───────────────────────────
+  window.pawSend = function(type, payload) {
+    if (!IS_NATIVE) return
+    payload = payload || {}
+    window.flutter_inappwebview.callHandler('PawNative', JSON.stringify({ type: type, ...payload }))
+  }
+
+  // ═══════════════════════════════════════════════════════════════
+  // NATIVE → WEB CALLBACKS (Flutter calls these)
+  // React listens via CustomEvents dispatched below
+  // ═══════════════════════════════════════════════════════════════
+
+  window.onNativeHealthData = function(data) {
+    window.dispatchEvent(new CustomEvent('paw:health', { detail: data }))
+  }
+
+  window.onNativeSteps = function(data) {
+    window.dispatchEvent(new CustomEvent('paw:steps', { detail: data }))
+  }
+
+  window.onNativePedestrianStatus = function(data) {
+    window.dispatchEvent(new CustomEvent('paw:pedestrian', { detail: data }))
+  }
+
+  window.onNativeUsageUpdate = function(data) {
+    window.dispatchEvent(new CustomEvent('paw:usage', { detail: data }))
+  }
+
+  window.onNativeAppRules = function(data) {
+    window.dispatchEvent(new CustomEvent('paw:rules', { detail: data }))
+  }
+
+  window.onNativeCalendar = function(json) {
+    window.dispatchEvent(new CustomEvent('paw:calendar', { detail: json }))
+  }
+
+  window.onGoogleAuthResult = function(json) {
+    window.dispatchEvent(new CustomEvent('paw:google_auth', { detail: json }))
+  }
+
+  window.onNativePhoto = function(data) {
+    window.dispatchEvent(new CustomEvent('paw:photo', { detail: data }))
+  }
+
+  window.onNativeHeartRate = function(data) {
+    window.dispatchEvent(new CustomEvent('paw:heart_rate', { detail: data }))
+  }
+
+  window.onNativeHeartRateStatus = function(data) {
+    window.dispatchEvent(new CustomEvent('paw:heart_rate_status', { detail: data }))
+  }
+
+  window.onNativeRecordingStatus = function(data) {
+    window.dispatchEvent(new CustomEvent('paw:recording_status', { detail: data }))
+  }
+
+  window.onNativeRecordingResult = function(data) {
+    window.dispatchEvent(new CustomEvent('paw:recording_result', { detail: data }))
+  }
+
+  window.onNativeAmplitude = function(data) {
+    window.dispatchEvent(new CustomEvent('paw:amplitude', { detail: data }))
+  }
+
+  window.onNativeLocation = function(data) {
+    window.dispatchEvent(new CustomEvent('paw:location', { detail: data }))
+  }
+
+  window.onNativeLocationUpdate = function(data) {
+    window.dispatchEvent(new CustomEvent('paw:location_update', { detail: data }))
+  }
+
+  window.onNativeLocationTrackingStatus = function(data) {
+    window.dispatchEvent(new CustomEvent('paw:location_tracking', { detail: data }))
+  }
+
+  window.onNativePermissionResult = function(data) {
+    window.dispatchEvent(new CustomEvent('paw:permission', { detail: data }))
+  }
+
+  // Auto-request on load (Flutter side expects these on startup)
+  if (IS_NATIVE) {
+    window.addEventListener('load', function() {
+      setTimeout(function() {
+        window.pawSend('GET_HEALTH_DATA')
+        window.pawSend('GET_STEPS')
+        // window.pawSend('GET_CALENDAR') — only on explicit user action
+        window.pawSend('GET_USAGE_SUMMARY')
+      }, 1500)
+    })
+  }
+  </script>
+</body>
+</html>

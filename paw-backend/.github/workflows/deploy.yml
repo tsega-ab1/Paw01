@@ -1,0 +1,12 @@
+# TODO: Add your GitHub Actions deploy workflow here
+name: Deploy to Render
+on:
+  push:
+    branches: [main]
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Deploy
+        run: echo "Configure your Render deploy hook here"

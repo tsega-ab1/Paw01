@@ -1,0 +1,1698 @@
+{
+  "profile": {
+    "name": "Tse",
+    "field": "Health ",
+    "updatedAt": "2026-05-29T08:08:14.184Z"
+  },
+  "routine": {
+    "title": "Early Riser Exam Prep",
+    "goalStatement": "Wake up early for exam preparation",
+    "goalCategory": "learning",
+    "totalDays": 30,
+    "startDate": "2026-06-05",
+    "featureFlags": {
+      "pomodoroTimer": true,
+      "urgeLog": false,
+      "countdownVisible": true,
+      "subjectTracker": true,
+      "emergencyChat": false,
+      "prayerTimes": false
+    },
+    "activities": [
+      {
+        "id": "act_1",
+        "name": "Early Wake-Up & Hydrate",
+        "time": "06:00",
+        "duration": "10 min",
+        "type": "Health",
+        "color": "#2d9e55",
+        "why": "Consistently waking up at the same early time helps regulate your circadian rhythm, making early rising easier for exam preparation.",
+        "daysOfWeek": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "critical": true
+      },
+      {
+        "id": "act_2",
+        "name": "Light Movement & Stretch",
+        "time": "06:10",
+        "duration": "15 min",
+        "type": "Health",
+        "color": "#2d9e55",
+        "why": "Gentle activity increases blood flow to the brain, enhancing alertness and focus for upcoming study sessions.",
+        "daysOfWeek": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "critical": true
+      },
+      {
+        "id": "act_3",
+        "name": "Focused Study Session 1",
+        "time": "06:30",
+        "duration": "90 min",
+        "type": "Learning",
+        "color": "#f59e0b",
+        "why": "Leverage peak morning alertness for deep work on challenging exam material, maximizing retention and understanding.",
+        "daysOfWeek": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "critical": true
+      },
+      {
+        "id": "act_4",
+        "name": "Nutritious Breakfast",
+        "time": "08:00",
+        "duration": "30 min",
+        "type": "Health",
+        "color": "#2d9e55",
+        "why": "Fuel your brain with essential nutrients to maintain energy and cognitive function throughout subsequent exam preparation.",
+        "daysOfWeek": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "critical": true
+      },
+      {
+        "id": "act_5",
+        "name": "Review Day Plan & Prep",
+        "time": "08:30",
+        "duration": "15 min",
+        "type": "Learning",
+        "color": "#f59e0b",
+        "why": "Organizing your study day after an early start ensures efficient use of time and targeted effort on exam topics.",
+        "daysOfWeek": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "critical": false
+      },
+      {
+        "id": "act_6",
+        "name": "Evening Wind-Down",
+        "time": "21:00",
+        "duration": "60 min",
+        "type": "Recovery",
+        "color": "#06b6d4",
+        "why": "Preparing your body and mind for sleep is crucial for consistent early waking and optimal rest needed for exam performance.",
+        "daysOfWeek": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "critical": true
+      },
+      {
+        "id": "act_7",
+        "name": "Early Bedtime",
+        "time": "22:00",
+        "duration": "8 hours (sleep)",
+        "type": "Recovery",
+        "color": "#06b6d4",
+        "why": "Ensuring sufficient sleep directly supports the ability to wake up early feeling refreshed and ready for exam preparation.",
+        "daysOfWeek": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "critical": true
+      }
+    ],
+    "checkInQuestions": [
+      "On a scale of 1-5, how easy was it to wake up at 6:00 AM this week? What made it easy/hard?",
+      "How effective were your early morning study sessions? Did you feel adequately focused and productive?",
+      "What adjustments to your evening routine or sleep schedule could further support your early waking goal for exam prep?"
+    ],
+    "quotePool": "universal",
+    "communityFilter": "learning",
+    "generatedAt": "2026-06-05T12:47:20.288Z",
+    "id": "routine_1780663640288"
+  },
+  "standard": {
+    "description": "Perfect execution means consistently waking up at 6:00 AM, completing the morning routine, and engaging in focused study sessions, all supported by a disciplined evening wind-down and early bedtime to ensure optimal sleep for exam preparation.",
+    "weeklyTargets": {
+      "completionRate": 85,
+      "consistencyScore": 80
+    },
+    "moduleTargets": {
+      "health.sleep_hours": "> 7",
+      "screen_time.passive_minutes": "< 60"
+    },
+    "scoringWeights": {
+      "completion": 0.5,
+      "timing": 0.2,
+      "modules": 0.3
+    },
+    "weeklyMilestones": {
+      "week1": "Successfully wake up at 6:00 AM on at least 5 out of 7 days, completing the first study session and maintaining a consistent bedtime.",
+      "week2": "Achieve 6:00 AM wake-up on 6 out of 7 days, feeling more alert in the mornings, and actively tracking study subjects within the early sessions.",
+      "week4": "Consistently wake up at 6:00 AM daily with minimal effort, demonstrating improved focus during early study, and integrating the routine seamlessly into your exam preparation schedule."
+    },
+    "activities": [
+      {
+        "id": "act_1",
+        "name": "Early Wake-Up & Hydrate",
+        "time": "06:00",
+        "duration": "10 min",
+        "type": "Health",
+        "color": "#2d9e55",
+        "why": "Consistently waking up at the same early time helps regulate your circadian rhythm, making early rising easier for exam preparation.",
+        "daysOfWeek": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "critical": true
+      },
+      {
+        "id": "act_2",
+        "name": "Light Movement & Stretch",
+        "time": "06:10",
+        "duration": "15 min",
+        "type": "Health",
+        "color": "#2d9e55",
+        "why": "Gentle activity increases blood flow to the brain, enhancing alertness and focus for upcoming study sessions.",
+        "daysOfWeek": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "critical": true
+      },
+      {
+        "id": "act_3",
+        "name": "Focused Study Session 1",
+        "time": "06:30",
+        "duration": "90 min",
+        "type": "Learning",
+        "color": "#f59e0b",
+        "why": "Leverage peak morning alertness for deep work on challenging exam material, maximizing retention and understanding.",
+        "daysOfWeek": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "critical": true
+      },
+      {
+        "id": "act_4",
+        "name": "Nutritious Breakfast",
+        "time": "08:00",
+        "duration": "30 min",
+        "type": "Health",
+        "color": "#2d9e55",
+        "why": "Fuel your brain with essential nutrients to maintain energy and cognitive function throughout subsequent exam preparation.",
+        "daysOfWeek": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "critical": true
+      },
+      {
+        "id": "act_5",
+        "name": "Review Day Plan & Prep",
+        "time": "08:30",
+        "duration": "15 min",
+        "type": "Learning",
+        "color": "#f59e0b",
+        "why": "Organizing your study day after an early start ensures efficient use of time and targeted effort on exam topics.",
+        "daysOfWeek": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "critical": false
+      },
+      {
+        "id": "act_6",
+        "name": "Evening Wind-Down",
+        "time": "21:00",
+        "duration": "60 min",
+        "type": "Recovery",
+        "color": "#06b6d4",
+        "why": "Preparing your body and mind for sleep is crucial for consistent early waking and optimal rest needed for exam performance.",
+        "daysOfWeek": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "critical": true
+      },
+      {
+        "id": "act_7",
+        "name": "Early Bedtime",
+        "time": "22:00",
+        "duration": "8 hours (sleep)",
+        "type": "Recovery",
+        "color": "#06b6d4",
+        "why": "Ensuring sufficient sleep directly supports the ability to wake up early feeling refreshed and ready for exam preparation.",
+        "daysOfWeek": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "critical": true
+      }
+    ],
+    "generatedAt": "2026-06-05T12:47:20.288Z"
+  },
+  "logs": [],
+  "checkins": [],
+  "moduleData": {
+    "2026-05-08": {
+      "health": {
+        "steps": 6668,
+        "sleep_hours": 7.7,
+        "recordedAt": "2026-05-08T20:00:00.000Z"
+      },
+      "mood": {
+        "rating": 4.9,
+        "moodName": "OKAY",
+        "recordedAt": "2026-05-08T21:00:00.000Z"
+      },
+      "screen_time": {
+        "total_minutes": 134,
+        "passive_minutes": 76,
+        "recordedAt": "2026-05-08T21:30:00.000Z"
+      }
+    },
+    "2026-05-09": {
+      "health": {
+        "steps": 9006,
+        "sleep_hours": 7.8,
+        "recordedAt": "2026-05-09T20:00:00.000Z"
+      },
+      "mood": {
+        "rating": 3.5,
+        "moodName": "OKAY",
+        "recordedAt": "2026-05-09T21:00:00.000Z"
+      },
+      "screen_time": {
+        "total_minutes": 93,
+        "passive_minutes": 31,
+        "recordedAt": "2026-05-09T21:30:00.000Z"
+      }
+    },
+    "2026-05-10": {
+      "health": {
+        "steps": 7137,
+        "sleep_hours": 6.8,
+        "recordedAt": "2026-05-10T20:00:00.000Z"
+      },
+      "mood": {
+        "rating": 4.4,
+        "moodName": "GOOD",
+        "recordedAt": "2026-05-10T21:00:00.000Z"
+      },
+      "screen_time": {
+        "total_minutes": 80,
+        "passive_minutes": 42,
+        "recordedAt": "2026-05-10T21:30:00.000Z"
+      }
+    },
+    "2026-05-11": {
+      "health": {
+        "steps": 11111,
+        "sleep_hours": 8.4,
+        "recordedAt": "2026-05-11T20:00:00.000Z"
+      },
+      "mood": {
+        "rating": 3.1,
+        "moodName": "GOOD",
+        "recordedAt": "2026-05-11T21:00:00.000Z"
+      },
+      "screen_time": {
+        "total_minutes": 82,
+        "passive_minutes": 46,
+        "recordedAt": "2026-05-11T21:30:00.000Z"
+      }
+    },
+    "2026-05-12": {
+      "health": {
+        "steps": 9813,
+        "sleep_hours": 8.1,
+        "recordedAt": "2026-05-12T20:00:00.000Z"
+      },
+      "mood": {
+        "rating": 3.9,
+        "moodName": "AMAZING",
+        "recordedAt": "2026-05-12T21:00:00.000Z"
+      },
+      "screen_time": {
+        "total_minutes": 115,
+        "passive_minutes": 89,
+        "recordedAt": "2026-05-12T21:30:00.000Z"
+      }
+    },
+    "2026-05-13": {
+      "health": {
+        "steps": 7690,
+        "sleep_hours": 6.9,
+        "recordedAt": "2026-05-13T20:00:00.000Z"
+      },
+      "mood": {
+        "rating": 4.8,
+        "moodName": "GOOD",
+        "recordedAt": "2026-05-13T21:00:00.000Z"
+      },
+      "screen_time": {
+        "total_minutes": 95,
+        "passive_minutes": 93,
+        "recordedAt": "2026-05-13T21:30:00.000Z"
+      }
+    },
+    "2026-05-14": {
+      "health": {
+        "steps": 6988,
+        "sleep_hours": 8.3,
+        "recordedAt": "2026-05-14T20:00:00.000Z"
+      },
+      "mood": {
+        "rating": 4.6,
+        "moodName": "GOOD",
+        "recordedAt": "2026-05-14T21:00:00.000Z"
+      },
+      "screen_time": {
+        "total_minutes": 107,
+        "passive_minutes": 44,
+        "recordedAt": "2026-05-14T21:30:00.000Z"
+      }
+    },
+    "2026-05-15": {
+      "health": {
+        "steps": 9196,
+        "sleep_hours": 8,
+        "recordedAt": "2026-05-15T20:00:00.000Z"
+      },
+      "mood": {
+        "rating": 4,
+        "moodName": "GREAT",
+        "recordedAt": "2026-05-15T21:00:00.000Z"
+      },
+      "screen_time": {
+        "total_minutes": 66,
+        "passive_minutes": 36,
+        "recordedAt": "2026-05-15T21:30:00.000Z"
+      }
+    },
+    "2026-05-16": {
+      "health": {
+        "steps": 9274,
+        "sleep_hours": 8.1,
+        "recordedAt": "2026-05-16T20:00:00.000Z"
+      },
+      "mood": {
+        "rating": 4.6,
+        "moodName": "GOOD",
+        "recordedAt": "2026-05-16T21:00:00.000Z"
+      },
+      "screen_time": {
+        "total_minutes": 77,
+        "passive_minutes": 107,
+        "recordedAt": "2026-05-16T21:30:00.000Z"
+      }
+    },
+    "2026-05-17": {
+      "health": {
+        "steps": 7650,
+        "sleep_hours": 7.2,
+        "recordedAt": "2026-05-17T20:00:00.000Z"
+      },
+      "mood": {
+        "rating": 4.6,
+        "moodName": "GOOD",
+        "recordedAt": "2026-05-17T21:00:00.000Z"
+      },
+      "screen_time": {
+        "total_minutes": 88,
+        "passive_minutes": 59,
+        "recordedAt": "2026-05-17T21:30:00.000Z"
+      }
+    },
+    "2026-05-18": {
+      "health": {
+        "steps": 11415,
+        "sleep_hours": 7.7,
+        "recordedAt": "2026-05-18T20:00:00.000Z"
+      },
+      "mood": {
+        "rating": 3.9,
+        "moodName": "AMAZING",
+        "recordedAt": "2026-05-18T21:00:00.000Z"
+      },
+      "screen_time": {
+        "total_minutes": 103,
+        "passive_minutes": 63,
+        "recordedAt": "2026-05-18T21:30:00.000Z"
+      }
+    },
+    "2026-05-19": {
+      "health": {
+        "steps": 8660,
+        "sleep_hours": 6.9,
+        "recordedAt": "2026-05-19T20:00:00.000Z"
+      },
+      "mood": {
+        "rating": 3.1,
+        "moodName": "GOOD",
+        "recordedAt": "2026-05-19T21:00:00.000Z"
+      },
+      "screen_time": {
+        "total_minutes": 79,
+        "passive_minutes": 105,
+        "recordedAt": "2026-05-19T21:30:00.000Z"
+      }
+    },
+    "2026-05-20": {
+      "health": {
+        "steps": 10597,
+        "sleep_hours": 7.4,
+        "recordedAt": "2026-05-20T20:00:00.000Z"
+      },
+      "mood": {
+        "rating": 4.6,
+        "moodName": "GOOD",
+        "recordedAt": "2026-05-20T21:00:00.000Z"
+      },
+      "screen_time": {
+        "total_minutes": 121,
+        "passive_minutes": 37,
+        "recordedAt": "2026-05-20T21:30:00.000Z"
+      }
+    },
+    "2026-05-21": {
+      "health": {
+        "steps": 9385,
+        "sleep_hours": 8,
+        "recordedAt": "2026-05-21T20:00:00.000Z"
+      },
+      "mood": {
+        "rating": 3.4,
+        "moodName": "AMAZING",
+        "recordedAt": "2026-05-21T21:00:00.000Z"
+      },
+      "screen_time": {
+        "total_minutes": 163,
+        "passive_minutes": 57,
+        "recordedAt": "2026-05-21T21:30:00.000Z"
+      }
+    },
+    "2026-05-22": {
+      "health": {
+        "steps": 8637,
+        "sleep_hours": 7.1,
+        "recordedAt": "2026-05-22T20:00:00.000Z"
+      },
+      "mood": {
+        "rating": 3.8,
+        "moodName": "OKAY",
+        "recordedAt": "2026-05-22T21:00:00.000Z"
+      },
+      "screen_time": {
+        "total_minutes": 78,
+        "passive_minutes": 80,
+        "recordedAt": "2026-05-22T21:30:00.000Z"
+      }
+    },
+    "2026-05-23": {
+      "health": {
+        "steps": 8702,
+        "sleep_hours": 7.5,
+        "recordedAt": "2026-05-23T20:00:00.000Z"
+      },
+      "mood": {
+        "rating": 3.2,
+        "moodName": "GREAT",
+        "recordedAt": "2026-05-23T21:00:00.000Z"
+      },
+      "screen_time": {
+        "total_minutes": 111,
+        "passive_minutes": 34,
+        "recordedAt": "2026-05-23T21:30:00.000Z"
+      }
+    },
+    "2026-05-24": {
+      "health": {
+        "steps": 6921,
+        "sleep_hours": 7.4,
+        "recordedAt": "2026-05-24T20:00:00.000Z"
+      },
+      "mood": {
+        "rating": 4.5,
+        "moodName": "OKAY",
+        "recordedAt": "2026-05-24T21:00:00.000Z"
+      },
+      "screen_time": {
+        "total_minutes": 117,
+        "passive_minutes": 85,
+        "recordedAt": "2026-05-24T21:30:00.000Z"
+      }
+    },
+    "2026-05-25": {
+      "health": {
+        "steps": 7448,
+        "sleep_hours": 8.4,
+        "recordedAt": "2026-05-25T20:00:00.000Z"
+      },
+      "mood": {
+        "rating": 4.3,
+        "moodName": "GOOD",
+        "recordedAt": "2026-05-25T21:00:00.000Z"
+      },
+      "screen_time": {
+        "total_minutes": 65,
+        "passive_minutes": 87,
+        "recordedAt": "2026-05-25T21:30:00.000Z"
+      }
+    },
+    "2026-05-26": {
+      "health": {
+        "steps": 8189,
+        "sleep_hours": 7.9,
+        "recordedAt": "2026-05-26T20:00:00.000Z"
+      },
+      "mood": {
+        "rating": 4.2,
+        "moodName": "GOOD",
+        "recordedAt": "2026-05-26T21:00:00.000Z"
+      },
+      "screen_time": {
+        "total_minutes": 165,
+        "passive_minutes": 93,
+        "recordedAt": "2026-05-26T21:30:00.000Z"
+      }
+    },
+    "2026-05-27": {
+      "health": {
+        "steps": 7102,
+        "sleep_hours": 8.2,
+        "recordedAt": "2026-05-27T20:00:00.000Z"
+      },
+      "mood": {
+        "rating": 3.6,
+        "moodName": "GREAT",
+        "recordedAt": "2026-05-27T21:00:00.000Z"
+      },
+      "screen_time": {
+        "total_minutes": 76,
+        "passive_minutes": 54,
+        "recordedAt": "2026-05-27T21:30:00.000Z"
+      }
+    },
+    "2026-05-28": {
+      "health": {
+        "steps": 7394,
+        "sleep_hours": 8.3,
+        "recordedAt": "2026-05-28T20:00:00.000Z"
+      },
+      "mood": {
+        "rating": 4.5,
+        "moodName": "AMAZING",
+        "recordedAt": "2026-05-28T21:00:00.000Z"
+      },
+      "screen_time": {
+        "total_minutes": 61,
+        "passive_minutes": 65,
+        "recordedAt": "2026-05-28T21:30:00.000Z"
+      }
+    }
+  },
+  "conversations": [
+    {
+      "sessionId": "s_1778524141627",
+      "role": "user",
+      "content": "Hello PAW",
+      "ts": "2026-05-11T18:29:01.627Z"
+    },
+    {
+      "sessionId": "s_1778524141627",
+      "role": "assistant",
+      "content": "Hello Tse.\n\nNo active routine yet. Your current goal is 'your goal' – Day 1 of 30.\n\nWhat would you like to achieve? Describe your goal clearly, and I'll generate a full routine for you.",
+      "ts": "2026-05-11T18:29:01.627Z"
+    },
+    {
+      "sessionId": "s_1778733424431",
+      "role": "user",
+      "content": "Hello",
+      "ts": "2026-05-14T04:37:17.275Z"
+    },
+    {
+      "sessionId": "s_1778733424431",
+      "role": "assistant",
+      "content": "Hey Tse! Good to hear from you.\n\nWe're on Day 3 of your 5 AM Morning Mastery routine. How did your 5 AM wake-up go today?",
+      "ts": "2026-05-14T04:37:17.275Z"
+    },
+    {
+      "sessionId": "s_1778733424431",
+      "role": "user",
+      "content": "I want to read at 7am every day",
+      "ts": "2026-05-14T04:37:58.879Z"
+    },
+    {
+      "sessionId": "s_1778733424431",
+      "role": "assistant",
+      "content": "Got it. Reading at 7",
+      "ts": "2026-05-14T04:37:58.879Z"
+    },
+    {
+      "sessionId": "s_1778733424431",
+      "role": "user",
+      "content": "I want to build a consistent morning routine and read at 7am every day",
+      "ts": "2026-05-14T04:39:22.450Z"
+    },
+    {
+      "sessionId": "s_1778733424431",
+      "role": "assistant",
+      "content": "Okay, Tse. It sounds like you want to",
+      "ts": "2026-05-14T04:39:22.450Z"
+    },
+    {
+      "sessionId": "s_1778733424431",
+      "role": "user",
+      "content": "Why are u not responding fully",
+      "ts": "2026-05-14T04:39:49.765Z"
+    },
+    {
+      "sessionId": "s_1778733424431",
+      "role": "assistant",
+      "content": "Apologies, Tse. My last message was cut",
+      "ts": "2026-05-14T04:39:49.765Z"
+    },
+    {
+      "sessionId": "s_1778733637906",
+      "role": "user",
+      "content": "Hi who are u",
+      "ts": "2026-05-14T04:40:49.371Z"
+    },
+    {
+      "sessionId": "s_1778733637906",
+      "role": "assistant",
+      "content": "Hi Tse, I'm PA",
+      "ts": "2026-05-14T04:40:49.371Z"
+    },
+    {
+      "sessionId": "s_1778733637906",
+      "role": "user",
+      "content": "I want to reschedule my Nightly Wind-Down.",
+      "ts": "2026-05-14T04:41:06.798Z"
+    },
+    {
+      "sessionId": "s_1778733637906",
+      "role": "assistant",
+      "content": "Okay. What time would you like to move your Nightly Wind-Down to?",
+      "ts": "2026-05-14T04:41:06.798Z"
+    },
+    {
+      "sessionId": "s_1778751441881",
+      "role": "user",
+      "content": "Helloe",
+      "ts": "2026-05-14T09:37:31.580Z"
+    },
+    {
+      "sessionId": "s_1778751441881",
+      "role": "assistant",
+      "content": "Hello Tse. Welcome.\n\nWhat do you want to build or change today?",
+      "ts": "2026-05-14T09:37:31.580Z"
+    },
+    {
+      "sessionId": "s_1778751441881",
+      "role": "user",
+      "content": "I want to build a consistent morning routine and study at 7am every day",
+      "ts": "2026-05-14T09:38:17.309Z"
+    },
+    {
+      "sessionId": "s_1778751441881",
+      "role": "assistant",
+      "content": "Okay, Tse. Building a consistent morning routine and studying at 7 AM every day is a solid goal.\n\nTo help me create the most effective routine for you, I need a little more context.\n\n1.  What have you tried before to establish a morning routine or study consistently at 7 AM, and what were the main challenges you faced?\n2.  Can you outline your typical evening and morning schedule right now, especially what time you usually go to bed and wake up?",
+      "ts": "2026-05-14T09:38:17.309Z"
+    },
+    {
+      "sessionId": "s_1778751441881",
+      "role": "user",
+      "content": "1 can't wake up and if I do I very tired to do it",
+      "ts": "2026-05-14T09:39:01.603Z"
+    },
+    {
+      "sessionId": "s_1778751441881",
+      "role": "assistant",
+      "content": "Thanks for sharing, Tse. It's clear that difficulty waking up and persistent tiredness are significant hurdles for you. We can definitely address those when building your routine.\n\nTo help me understand your current rhythm better, can you tell me what time you usually go to bed and what time you currently wake up on most days?",
+      "ts": "2026-05-14T09:39:01.603Z"
+    },
+    {
+      "sessionId": "s_1778751441881",
+      "role": "user",
+      "content": "I go bed at 11 and wakes 8",
+      "ts": "2026-05-14T09:39:53.215Z"
+    },
+    {
+      "sessionId": "s_1778751441881",
+      "role": "assistant",
+      "content": "Okay, Tse. I understand. You're aiming to shift from an 11 PM bedtime and 8 AM wake-up to a morning routine that includes studying at 7 AM, but you struggle with waking up and feeling tired.\n\nI will build a routine designed to help you gradually adjust your sleep schedule and energy levels to achieve your goal of waking earlier and studying consistently at 7 AM.",
+      "ts": "2026-05-14T09:39:53.215Z"
+    },
+    {
+      "sessionId": "s_1778751441881",
+      "role": "user",
+      "content": "Go build it",
+      "ts": "2026-05-14T09:40:36.156Z"
+    },
+    {
+      "sessionId": "s_1778751441881",
+      "role": "assistant",
+      "content": "Understood, Tse. I am building your routine now.",
+      "ts": "2026-05-14T09:40:36.156Z"
+    },
+    {
+      "sessionId": "s_1778756475123",
+      "role": "user",
+      "content": "I want to adapt this community routine to my life. My goal is...",
+      "ts": "2026-05-14T11:01:40.133Z"
+    },
+    {
+      "sessionId": "s_1778756475123",
+      "role": "assistant",
+      "content": "Tse, you currently have the '5 AM Morning Mastery' routine active, aimed at building a consistent morning routine and waking up at 5 AM daily.\n\nYou mentioned wanting to adapt a 'community routine' and stated 'My goal is...' but the goal statement wasn't completed.\n\nCould you clarify what 'this community routine' refers to and fully state your goal for it?",
+      "ts": "2026-05-14T11:01:40.133Z"
+    },
+    {
+      "sessionId": "s_1779689807407",
+      "role": "user",
+      "content": "Hi",
+      "ts": "2026-05-25T06:16:56.052Z"
+    },
+    {
+      "sessionId": "s_1779689807407",
+      "role": "assistant",
+      "content": "Hi Tse.\n\nDay 14 of 30 for your 5 AM Morning Mastery.\n\nHow are you feeling about the routine today?",
+      "ts": "2026-05-25T06:16:56.052Z"
+    },
+    {
+      "sessionId": "test_1",
+      "role": "user",
+      "content": "Hello PAW",
+      "ts": "2026-05-26T05:05:19.826Z"
+    },
+    {
+      "sessionId": "test_1",
+      "role": "assistant",
+      "content": "Hello Tse.\n\nYou're on Day 15 of your 30-day 5 AM Morning Mastery routine. This marks the halfway point.\n\nI've noticed Thursdays are consistently your strongest days, with 100% completion.\n\nHow are you feeling about the routine today?",
+      "ts": "2026-05-26T05:05:19.829Z"
+    },
+    {
+      "sessionId": "s_1779772119085",
+      "role": "user",
+      "content": "I want to be digital content creator",
+      "ts": "2026-05-26T05:09:52.526Z"
+    },
+    {
+      "sessionId": "s_1779772119085",
+      "role": "assistant",
+      "content": "Okay, Tse. You want to be a digital content creator.\n\nLet's focus on that. First, tell me:\n\n1.  What have you tried so far to become a digital content creator, even small steps?\n2.  What does your typical day look like in terms of free time or dedicated work blocks?",
+      "ts": "2026-05-26T05:09:52.530Z"
+    },
+    {
+      "sessionId": "s_1779772119085",
+      "role": "user",
+      "content": "I paint and post it daily",
+      "ts": "2026-05-26T05:10:23.065Z"
+    },
+    {
+      "sessionId": "s_1779772119085",
+      "role": "assistant",
+      "content": "Okay, Tse. You're already painting and posting daily. That's a strong start for a content creator.\n\nNow, let's look at your schedule. What does your typical day look like in terms of free time or dedicated work blocks for this?",
+      "ts": "2026-05-26T05:10:23.065Z"
+    },
+    {
+      "sessionId": "s_1779772119085",
+      "role": "user",
+      "content": "Am fully available a have no job am recent graduate",
+      "ts": "2026-05-26T05:11:21.226Z"
+    },
+    {
+      "sessionId": "s_1779772119085",
+      "role": "assistant",
+      "content": "Okay, Tse. You're fully available and already posting daily. That gives us a lot to work with.\n\nI will build a routine to help you become a digital content creator, leveraging your painting and daily posting.",
+      "ts": "2026-05-26T05:11:21.226Z"
+    },
+    {
+      "sessionId": "s_1779772119085",
+      "role": "user",
+      "content": "Go build my routine",
+      "ts": "2026-05-26T05:12:03.585Z"
+    },
+    {
+      "sessionId": "s_1779772119085",
+      "role": "assistant",
+      "content": "Okay, Tse. I'm building your routine.",
+      "ts": "2026-05-26T05:12:03.585Z"
+    },
+    {
+      "sessionId": "s_1779772119085",
+      "role": "user",
+      "content": "Okay on the top of that build a routine to help me quit cigarettes addiction",
+      "ts": "2026-05-26T05:13:59.335Z"
+    },
+    {
+      "sessionId": "s_1779772119085",
+      "role": "assistant",
+      "content": "Okay, Tse. I will also build a routine to help you quit cigarettes.\n\nFirst, tell me what you've tried before to quit or cut back, and what happened when you tried.",
+      "ts": "2026-05-26T05:13:59.335Z"
+    },
+    {
+      "sessionId": "s_1779772119085",
+      "role": "user",
+      "content": "Yes I tried but I relapse",
+      "ts": "2026-05-26T05:14:24.501Z"
+    },
+    {
+      "sessionId": "s_1779772119085",
+      "role": "assistant",
+      "content": "Relapses are common, Tse. It's important to understand why they happened so we can build a better plan.\n\nNow, tell me about your typical daily schedule. What does a normal day look like for you, from when you wake up to when you go to sleep?",
+      "ts": "2026-05-26T05:14:24.501Z"
+    },
+    {
+      "sessionId": "s_1779772119085",
+      "role": "user",
+      "content": "That's a lot just plan it out and we will curate it while going",
+      "ts": "2026-05-26T05:15:26.045Z"
+    },
+    {
+      "sessionId": "s_1779772119085",
+      "role": "assistant",
+      "content": "I understand it feels like a lot to write out, Tse. However, knowing your typical daily schedule is crucial for building an effective routine to quit cigarettes.\n\nWithout understanding your usual wake-up time, work or activity hours, and when you typically smoke, I can't create a plan that fits your life and targets your specific triggers. The routine would be generic, and less likely to help you succeed.\n\nCan you provide a brief outline? For example:\n- Wake up time:\n- Morning activities:\n- Work/study/main activity hours:\n- Evening activities:\n- Bedtime:\n\nEven a rough outline helps me build something tailored to you.",
+      "ts": "2026-05-26T05:15:26.045Z"
+    },
+    {
+      "sessionId": "s_1779772119085",
+      "role": "user",
+      "content": "2 am, eating chating, non watching movies, little painting, around 11pm",
+      "ts": "2026-05-26T05:16:51.432Z"
+    },
+    {
+      "sessionId": "s_1779772119085",
+      "role": "assistant",
+      "content": "Thank you, Tse.\n\nTo confirm, your day looks something like this:\n*   Wake up: 2 AM\n*   Activities: Eating, chatting, watching movies, painting\n*   Bedtime: Around 11 PM\n\nThis gives me a rough timeframe. Now, to help you quit cigarettes, I need to understand when you typically smoke throughout this schedule.\n\nWhen do you usually light up during your day?",
+      "ts": "2026-05-26T05:16:51.432Z"
+    },
+    {
+      "sessionId": "s_1779772119085",
+      "role": "user",
+      "content": "Even activities",
+      "ts": "2026-05-26T05:17:30.629Z"
+    },
+    {
+      "sessionId": "s_1779772119085",
+      "role": "assistant",
+      "content": "\"Even activitiesEven activities\" – can you elaborate on what you mean by that, Tse?\n\nAre you saying you smoke during your evening activities, or that you smoke *even* when you're doing other activities? Please clarify when you usually light up.",
+      "ts": "2026-05-26T05:17:30.629Z"
+    },
+    {
+      "sessionId": "s_1779772119085",
+      "role": "user",
+      "content": "When i am alone",
+      "ts": "2026-05-26T05:18:05.202Z"
+    },
+    {
+      "sessionId": "s_1779772119085",
+      "role": "assistant",
+      "content": "Thank you, Tse. I understand. You smoke when you are alone, particularly during your evening activities. This gives me a clear picture of when the habit is strongest for you.\n\nI will now build a routine to help you quit cigarettes, focusing on strategies for those times when you are alone.",
+      "ts": "2026-05-26T05:18:05.202Z"
+    },
+    {
+      "sessionId": "s_1779772119085",
+      "role": "user",
+      "content": "Go build",
+      "ts": "2026-05-26T05:18:42.494Z"
+    },
+    {
+      "sessionId": "s_1779772119085",
+      "role": "assistant",
+      "content": "Understood, Tse.\n\nI will build your routine to help you quit cigarettes.",
+      "ts": "2026-05-26T05:18:42.494Z"
+    },
+    {
+      "sessionId": "s_1779772119085",
+      "role": "user",
+      "content": "Go build it",
+      "ts": "2026-05-26T05:19:37.002Z"
+    },
+    {
+      "sessionId": "s_1779772119085",
+      "role": "assistant",
+      "content": "Understood, Tse. I will build your routine to help you quit cigarettes.",
+      "ts": "2026-05-26T05:19:37.002Z"
+    },
+    {
+      "sessionId": "s_1779772119085",
+      "role": "user",
+      "content": "Build the routine",
+      "ts": "2026-05-26T05:20:29.979Z"
+    },
+    {
+      "sessionId": "s_1779772119085",
+      "role": "assistant",
+      "content": "I need a bit more information to build your routine effectively, Tse.\n\nTo help you quit cigarettes, please tell me:\n1. What have you tried before to quit, and what was the outcome?\n2. What does your typical daily schedule look like, particularly around times you usually smoke?",
+      "ts": "2026-05-26T05:20:29.979Z"
+    },
+    {
+      "sessionId": "s_1779772119085",
+      "role": "user",
+      "content": "I want to reschedule my Daily Reading Log.",
+      "ts": "2026-05-26T05:21:15.293Z"
+    },
+    {
+      "sessionId": "s_1779772119085",
+      "role": "assistant",
+      "content": "Okay, Tse. You want to reschedule your Daily Reading Immersion.\n\nWhat new time or day would work better for you?",
+      "ts": "2026-05-26T05:21:15.293Z"
+    },
+    {
+      "sessionId": "s_1779858472281",
+      "role": "user",
+      "content": "Build me a routine to weaking ever 5am I usually wake 7 or 8am and goes to sleep at 11pm",
+      "ts": "2026-05-27T05:10:04.670Z"
+    },
+    {
+      "sessionId": "s_1779858472281",
+      "role": "assistant",
+      "content": "Okay, Tse. I can help you build a routine to wake up at 5 am.\n\nTo start, tell me:\n1. What have you tried in the past to wake up earlier?\n2. What does your typical evening look like between 7 pm and 11 pm?",
+      "ts": "2026-05-27T05:10:04.670Z"
+    },
+    {
+      "sessionId": "s_1779858472281",
+      "role": "user",
+      "content": "Noting",
+      "ts": "2026-05-27T05:10:22.524Z"
+    },
+    {
+      "sessionId": "s_1779858472281",
+      "role": "assistant",
+      "content": "Understood, you haven't tried anything specific to wake up earlier.\n\nTo help me build the best routine for you, please tell me: What does your typical evening look like between 7 pm and 11 pm?",
+      "ts": "2026-05-27T05:10:22.524Z"
+    },
+    {
+      "sessionId": "s_1779858472281",
+      "role": "user",
+      "content": "Gd all normal",
+      "ts": "2026-05-27T05:10:59.436Z"
+    },
+    {
+      "sessionId": "s_1779858472281",
+      "role": "assistant",
+      "content": "Understood, Tse. Your evenings are generally normal.\n\nI will build a routine to help you shift your wake-up time to 5 AM daily, aiming to maintain your 11 PM bedtime.",
+      "ts": "2026-05-27T05:10:59.436Z"
+    },
+    {
+      "sessionId": "s_1779858472281",
+      "role": "user",
+      "content": "Okay",
+      "ts": "2026-05-27T05:11:30.525Z"
+    },
+    {
+      "sessionId": "s_1779858472281",
+      "role": "assistant",
+      "content": "Understood, Tse. I'm now building your routine to help you wake up at 5 AM daily.",
+      "ts": "2026-05-27T05:11:30.525Z"
+    },
+    {
+      "sessionId": "s_1779912100872",
+      "role": "user",
+      "content": "Sure let's get stared",
+      "ts": "2026-05-27T20:03:46.721Z"
+    },
+    {
+      "sessionId": "s_1779912100872",
+      "role": "assistant",
+      "content": "Excellent. Let's get started on Day 1 of your Creative Flow Routine.\n\nThe goal for this routine is creative practice.\n\nWhat's the first creative task you're looking to tackle today?",
+      "ts": "2026-05-27T20:03:46.721Z"
+    },
+    {
+      "sessionId": "s_1779912100872",
+      "role": "user",
+      "content": "Paint 2 paintings",
+      "ts": "2026-05-27T20:04:13.718Z"
+    },
+    {
+      "sessionId": "s_1779912100872",
+      "role": "assistant",
+      "content": "Painting two paintings is an ambitious start for Day 1. That's a strong commitment to creative practice.\n\nWhat's your plan for the first painting? What will you focus on?",
+      "ts": "2026-05-27T20:04:13.718Z"
+    },
+    {
+      "sessionId": "s_1780041047254",
+      "role": "user",
+      "content": "Generate a sport routine for 7days",
+      "ts": "2026-05-29T07:51:59.531Z"
+    },
+    {
+      "sessionId": "s_1780041047254",
+      "role": "assistant",
+      "content": "Got it. Building a consistent sport routine can be a game-changer for energy and focus.",
+      "ts": "2026-05-29T07:51:59.531Z"
+    },
+    {
+      "sessionId": "s_1780663481343",
+      "role": "user",
+      "content": "I need to wake up early",
+      "ts": "2026-06-05T12:47:20.296Z"
+    },
+    {
+      "sessionId": "s_1780663481343",
+      "role": "assistant",
+      "content": "Understood. Focusing on early mornings for your exam prep is a smart move.",
+      "ts": "2026-06-05T12:47:20.296Z"
+    },
+    {
+      "sessionId": "s_1780663481343",
+      "role": "user",
+      "content": "I've exam in 10 days",
+      "ts": "2026-06-05T12:47:41.184Z"
+    },
+    {
+      "sessionId": "s_1780663481343",
+      "role": "assistant",
+      "content": "Thanks for letting me know, Tse. With your exam in 10 days, this \"Early Riser Exam Prep\" routine is perfectly timed to help you focus.\n\nHow are you feeling about the first day of the routine today?",
+      "ts": "2026-06-05T12:47:41.184Z"
+    },
+    {
+      "sessionId": "s_1780663481343",
+      "role": "user",
+      "content": "Good now I need a intensive study schedule",
+      "ts": "2026-06-05T12:48:58.096Z"
+    },
+    {
+      "sessionId": "s_1780663481343",
+      "role": "assistant",
+      "content": "Understood, Tse. An intensive study schedule makes perfect sense with your exam approaching.",
+      "ts": "2026-06-05T12:48:58.096Z"
+    },
+    {
+      "sessionId": "s_1780728567574",
+      "role": "user",
+      "content": ".....",
+      "ts": "2026-06-06T06:50:23.796Z"
+    },
+    {
+      "sessionId": "s_1780728567574",
+      "role": "assistant",
+      "content": "Hey Tse, looks like we had a little hiccup there. Apologies.\n\nIt's Day 2 of your Early Riser Exam Prep. How did your 6 AM wake-up go this morning?",
+      "ts": "2026-06-06T06:50:23.798Z"
+    }
+  ],
+  "analyses": [
+    {
+      "text": "Here's your analysis:\n\n1.  **Key Insight from Patterns:** The current data offers no predictive patterns because you've just begun. Every action from this point forward will start building your unique habit signature.\n2.  **Highest-Leverage Change:** Your highest leverage move is to",
+      "date": "2026-05-26T05:06:49.549Z"
+    },
+    {
+      "text": "Here's your analysis:\n\n1.  **Key Insight from Patterns",
+      "date": "2026-05-27T20:08:10.742Z"
+    }
+  ],
+  "journey": [
+    {
+      "activity": "Morning Movement",
+      "caption": "Day 3. First time I didn't want to stop at 20 minutes. Something shifted.",
+      "photo": null,
+      "timestamp": "2026-05-11T07:49:50.117Z"
+    },
+    {
+      "activity": "Deep Work Block",
+      "caption": "Shipped the first feature of the app at 7:30am. The silence at this hour is gold.",
+      "photo": null,
+      "timestamp": "2026-05-14T07:49:50.117Z"
+    },
+    {
+      "activity": "Fajr / Reflection",
+      "caption": "Started writing what I'm grateful for before prayer. The day starts differently now.",
+      "photo": null,
+      "timestamp": "2026-05-17T07:49:50.117Z"
+    },
+    {
+      "activity": "Wake & Hydrate",
+      "caption": "Day 10 streak. The alarm doesn't feel like an enemy anymore.",
+      "photo": null,
+      "timestamp": "2026-05-18T07:49:50.117Z"
+    },
+    {
+      "activity": "Cold Shower",
+      "caption": "I was sure I'd skip this forever. I haven't skipped once this week.",
+      "photo": null,
+      "timestamp": "2026-05-21T07:49:50.117Z"
+    },
+    {
+      "activity": "Morning Movement",
+      "caption": "Ran past the old route. The city at 5:30am belongs to nobody and everybody.",
+      "photo": null,
+      "timestamp": "2026-05-23T07:49:50.117Z"
+    },
+    {
+      "activity": "Deep Work Block",
+      "caption": "Three weeks in. The identity is starting to feel real.",
+      "photo": null,
+      "timestamp": "2026-05-27T07:49:50.117Z"
+    },
+    {
+      "activity": "General",
+      "caption": "I went to ALX hackton of wellness and it boring everyone is self centered and privet am all alone that's debari thing",
+      "photo": null,
+      "timestamp": "2026-06-06T06:52:26.770Z"
+    }
+  ],
+  "community": [
+    {
+      "category": "health",
+      "title": "5AM Morning Mastery · Week 3",
+      "quote": "The alarm doesn't feel like an enemy anymore. Day 21. The identity is starting to feel real.",
+      "weeks": 3,
+      "blocks": [
+        1,
+        1,
+        0,
+        1,
+        1,
+        1,
+        1
+      ],
+      "liveCount": 4,
+      "adapts": 12,
+      "sharedAt": "2026-05-27T07:49:50.117Z",
+      "routineJSON": {
+        "id": "routine_demo",
+        "title": "5AM Morning Mastery",
+        "goalStatement": "I want to build a disciplined morning routine that sets the tone for every day",
+        "goalCategory": "health",
+        "totalDays": 30,
+        "startDate": "2026-05-08",
+        "currentDay": 22,
+        "featureFlags": {
+          "pomodoroTimer": false,
+          "urgeLog": false,
+          "countdownVisible": true,
+          "subjectTracker": false,
+          "emergencyChat": false,
+          "prayerTimes": true
+        },
+        "quotePool": "universal",
+        "communityFilter": "health",
+        "activities": [
+          {
+            "id": "act_1",
+            "name": "Wake & Hydrate",
+            "time": "05:00",
+            "duration": "5 min",
+            "type": "Health",
+            "color": "#2d9e55",
+            "why": "Kickstart metabolism and clarity before the world wakes.",
+            "daysOfWeek": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "critical": true
+          },
+          {
+            "id": "act_2",
+            "name": "Fajr / Reflection",
+            "time": "05:10",
+            "duration": "15 min",
+            "type": "Spiritual",
+            "color": "#6366f1",
+            "why": "Ground the day in purpose before anything else demands attention.",
+            "daysOfWeek": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "critical": true
+          },
+          {
+            "id": "act_3",
+            "name": "Morning Movement",
+            "time": "05:30",
+            "duration": "20 min",
+            "type": "Health",
+            "color": "#2d9e55",
+            "why": "Activate body and mind. The run that makes everything else possible.",
+            "daysOfWeek": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "critical": true
+          },
+          {
+            "id": "act_4",
+            "name": "Cold Shower",
+            "time": "05:55",
+            "duration": "5 min",
+            "type": "Health",
+            "color": "#06b6d4",
+            "why": "Discomfort tolerance. What you do at 5:55am shapes who you are at noon.",
+            "daysOfWeek": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "critical": false
+          },
+          {
+            "id": "act_5",
+            "name": "Deep Work Block",
+            "time": "06:00",
+            "duration": "90 min",
+            "type": "Professional",
+            "color": "#8b5cf6",
+            "why": "Peak focus window. No notifications. Just the work that moves the needle.",
+            "daysOfWeek": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ],
+            "critical": true
+          },
+          {
+            "id": "act_6",
+            "name": "Evening Wind Down",
+            "time": "21:00",
+            "duration": "30 min",
+            "type": "Recovery",
+            "color": "#06b6d4",
+            "why": "Signal to the body the day is complete. Sleep quality depends on this.",
+            "daysOfWeek": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "critical": false
+          }
+        ],
+        "checkInQuestions": [
+          "What made this morning different from last week?",
+          "Which activity had the most impact on your focus today?",
+          "What would make tomorrow's morning even stronger?"
+        ],
+        "generatedAt": "2026-05-08T07:49:50.117Z",
+        "exists": true
+      }
+    },
+    {
+      "category": "spiritual",
+      "title": "Fajr + Reflection Streak",
+      "quote": "Started writing what I'm grateful for before prayer. The day starts differently now. Quieter.",
+      "weeks": 2,
+      "blocks": [
+        1,
+        1,
+        1,
+        1,
+        0,
+        1,
+        1
+      ],
+      "liveCount": 3,
+      "adapts": 8,
+      "sharedAt": "2026-05-24T07:49:50.117Z",
+      "routineJSON": null
+    },
+    {
+      "category": "learning",
+      "title": "Deep Work Before 8am",
+      "quote": "Shipped the first real feature at 7:30am. Three weeks of morning deep work compressed a month of effort.",
+      "weeks": 3,
+      "blocks": [
+        1,
+        0,
+        1,
+        1,
+        1,
+        0,
+        1
+      ],
+      "liveCount": 6,
+      "adapts": 18,
+      "sharedAt": "2026-05-22T07:49:50.117Z",
+      "routineJSON": null
+    },
+    {
+      "category": "recovery",
+      "title": "Morning Movement Streak · 14 days",
+      "quote": "Movement is the medicine. 14 days of morning movement. Each day the urge to skip gets quieter.",
+      "weeks": 2,
+      "blocks": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "liveCount": 3,
+      "adapts": 9,
+      "sharedAt": "2026-05-19T07:49:50.117Z",
+      "routineJSON": null
+    }
+  ],
+  "memories": [
+    {
+      "id": "m1",
+      "type": "insight",
+      "content": "User prefers morning routines. Energy peaks before 8am.",
+      "summary": "Prefers mornings",
+      "tags": [
+        "routine",
+        "timing"
+      ],
+      "createdAt": "2026-05-09T07:49:50.117Z"
+    },
+    {
+      "id": "m2",
+      "type": "struggle",
+      "content": "Missed 3 days in week 2 due to late work deadline. Felt guilty.",
+      "summary": "Late work caused 3 misses",
+      "tags": [
+        "work",
+        "struggle"
+      ],
+      "createdAt": "2026-05-16T07:49:50.117Z"
+    },
+    {
+      "id": "m3",
+      "type": "win",
+      "content": "Completed first 7-day streak. Celebrated with a longer run.",
+      "summary": "First 7-day streak done",
+      "tags": [
+        "win",
+        "streak"
+      ],
+      "createdAt": "2026-05-15T07:49:50.117Z"
+    },
+    {
+      "id": "m4",
+      "type": "insight",
+      "content": "Cold shower is the most impactful activity for mental resilience.",
+      "summary": "Cold shower = key habit",
+      "tags": [
+        "insight",
+        "resilience"
+      ],
+      "createdAt": "2026-05-21T07:49:50.117Z"
+    },
+    {
+      "id": "m5",
+      "type": "decision",
+      "content": "Decided to extend the routine to 60 days after feeling results.",
+      "summary": "Extending to 60 days",
+      "tags": [
+        "decision",
+        "commitment"
+      ],
+      "createdAt": "2026-05-28T07:49:50.117Z"
+    },
+    {
+      "id": "mem_1780663640288",
+      "type": "decision",
+      "content": "Started \"Early Riser Exam Prep\" routine — Wake up early for exam preparation",
+      "summary": "Started Early Riser Exam Prep",
+      "tags": [
+        "routine",
+        "start"
+      ],
+      "createdAt": "2026-06-05T12:47:20.288Z"
+    }
+  ],
+  "mindMapNodes": [],
+  "challenges": [
+    {
+      "id": "ch_1780041204004",
+      "fromName": "Tsega",
+      "routineTitle": "Fajr + Reflection Streak",
+      "days": 7,
+      "routineJSON": null,
+      "postId": 1,
+      "accepted": 1,
+      "declined": 0,
+      "createdAt": "2026-05-29T07:53:24.004Z",
+      "status": "accepted"
+    },
+    {
+      "id": "ch_1780897275743",
+      "fromName": "Tse",
+      "routineTitle": "Early Riser Exam Prep",
+      "days": 30,
+      "routineJSON": {
+        "title": "Early Riser Exam Prep",
+        "goalStatement": "Wake up early for exam preparation",
+        "goalCategory": "learning",
+        "totalDays": 30,
+        "startDate": "2026-06-05",
+        "featureFlags": {
+          "pomodoroTimer": true,
+          "urgeLog": false,
+          "countdownVisible": true,
+          "subjectTracker": true,
+          "emergencyChat": false,
+          "prayerTimes": false
+        },
+        "activities": [
+          {
+            "id": "act_1",
+            "name": "Early Wake-Up & Hydrate",
+            "time": "06:00",
+            "duration": "10 min",
+            "type": "Health",
+            "color": "#2d9e55",
+            "why": "Consistently waking up at the same early time helps regulate your circadian rhythm, making early rising easier for exam preparation.",
+            "daysOfWeek": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "critical": true
+          },
+          {
+            "id": "act_2",
+            "name": "Light Movement & Stretch",
+            "time": "06:10",
+            "duration": "15 min",
+            "type": "Health",
+            "color": "#2d9e55",
+            "why": "Gentle activity increases blood flow to the brain, enhancing alertness and focus for upcoming study sessions.",
+            "daysOfWeek": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "critical": true
+          },
+          {
+            "id": "act_3",
+            "name": "Focused Study Session 1",
+            "time": "06:30",
+            "duration": "90 min",
+            "type": "Learning",
+            "color": "#f59e0b",
+            "why": "Leverage peak morning alertness for deep work on challenging exam material, maximizing retention and understanding.",
+            "daysOfWeek": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "critical": true
+          },
+          {
+            "id": "act_4",
+            "name": "Nutritious Breakfast",
+            "time": "08:00",
+            "duration": "30 min",
+            "type": "Health",
+            "color": "#2d9e55",
+            "why": "Fuel your brain with essential nutrients to maintain energy and cognitive function throughout subsequent exam preparation.",
+            "daysOfWeek": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "critical": true
+          },
+          {
+            "id": "act_5",
+            "name": "Review Day Plan & Prep",
+            "time": "08:30",
+            "duration": "15 min",
+            "type": "Learning",
+            "color": "#f59e0b",
+            "why": "Organizing your study day after an early start ensures efficient use of time and targeted effort on exam topics.",
+            "daysOfWeek": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "critical": false
+          },
+          {
+            "id": "act_6",
+            "name": "Evening Wind-Down",
+            "time": "21:00",
+            "duration": "60 min",
+            "type": "Recovery",
+            "color": "#06b6d4",
+            "why": "Preparing your body and mind for sleep is crucial for consistent early waking and optimal rest needed for exam performance.",
+            "daysOfWeek": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "critical": true
+          },
+          {
+            "id": "act_7",
+            "name": "Early Bedtime",
+            "time": "22:00",
+            "duration": "8 hours (sleep)",
+            "type": "Recovery",
+            "color": "#06b6d4",
+            "why": "Ensuring sufficient sleep directly supports the ability to wake up early feeling refreshed and ready for exam preparation.",
+            "daysOfWeek": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "critical": true
+          }
+        ],
+        "checkInQuestions": [
+          "On a scale of 1-5, how easy was it to wake up at 6:00 AM this week? What made it easy/hard?",
+          "How effective were your early morning study sessions? Did you feel adequately focused and productive?",
+          "What adjustments to your evening routine or sleep schedule could further support your early waking goal for exam prep?"
+        ],
+        "quotePool": "universal",
+        "communityFilter": "learning",
+        "generatedAt": "2026-06-05T12:47:20.288Z",
+        "id": "routine_1780663640288",
+        "currentDay": 4,
+        "exists": true
+      },
+      "postId": null,
+      "accepted": 0,
+      "declined": 0,
+      "createdAt": "2026-06-08T05:41:15.743Z",
+      "status": "open"
+    }
+  ]
+}
