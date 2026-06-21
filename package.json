@@ -1,0 +1,13 @@
+{
+  "name": "paw-local",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "paw-server.js",
+  "scripts": {
+    "start": "node paw-server.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.6",
+    "express": "^5.2.1"
+  }
+}

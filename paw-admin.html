@@ -1,0 +1,980 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PAW Admin — Community Routines</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --green: #00602a; --green-dark: #004d22; --green-light: #f0fdf4;
+  --green-mid: #dcfce7; --border: #d1fae5; --text: #1a2e1a;
+  --muted: #4a7c59; --faint: #9ab8a0; --surface: #f6fbf2;
+  --white: #ffffff; --card-shadow: 0 1px 3px rgba(0,96,42,0.08);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'DM Sans', sans-serif; background: var(--surface); color: var(--text); min-height: 100vh; }
+h1,h2,h3 { font-family: 'Playfair Display', serif; }
+
+/* Layout */
+.header { background: white; border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; }
+.header-inner { max-width: 1100px; margin: 0 auto; padding: 14px 24px; display: flex; align-items: center; justify-content: space-between; }
+.logo { font-family: 'Playfair Display', serif; font-style: italic; font-size: 24px; display: flex; align-items: center; gap: 6px; }
+.logo .p { color: var(--green); }
+.admin-badge { font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; border: 1.5px solid var(--border); padding: 2px 8px; border-radius: 4px; color: var(--muted); }
+.container { max-width: 1100px; margin: 0 auto; padding: 32px 24px; }
+
+/* Tabs */
+.tabs { display: flex; gap: 2px; background: white; border: 1px solid var(--border); border-radius: 12px; padding: 4px; width: fit-content; margin-bottom: 28px; }
+.tab-btn { padding: 8px 20px; border-radius: 9px; font-size: 13px; font-weight: 600; cursor: pointer; border: none; background: transparent; color: var(--muted); transition: all .2s; }
+.tab-btn.active { background: var(--green); color: white; }
+
+/* Cards */
+.card { background: white; border: 1px solid var(--border); border-radius: 16px; padding: 20px; box-shadow: var(--card-shadow); }
+.card-title { font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--green); margin-bottom: 14px; display: flex; align-items: center; justify-content: space-between; }
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.grid-main { display: grid; grid-template-columns: 1fr 340px; gap: 20px; align-items: start; }
+@media (max-width: 800px) { .grid-main { grid-template-columns: 1fr; } .grid-2 { grid-template-columns: 1fr; } }
+
+/* Inputs */
+label { font-size: 11px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; color: var(--muted); display: block; margin-bottom: 5px; }
+input[type=text], input[type=number], select, textarea {
+  width: 100%; padding: 10px 14px; border: 1.5px solid var(--border);
+  border-radius: 10px; font-family: 'DM Sans', sans-serif; font-size: 14px;
+  outline: none; background: var(--surface); color: var(--text); transition: border-color .2s;
+}
+input:focus, select:focus, textarea:focus { border-color: var(--green); background: white; }
+.field { margin-bottom: 14px; }
+
+/* Buttons */
+.btn { padding: 10px 18px; border-radius: 10px; font-size: 13px; font-weight: 600; cursor: pointer; border: none; transition: all .2s; font-family: 'DM Sans', sans-serif; display: inline-flex; align-items: center; gap: 6px; }
+.btn-primary { background: var(--green); color: white; }
+.btn-primary:hover { background: var(--green-dark); }
+.btn-outline { background: transparent; color: var(--green); border: 1.5px solid var(--green); }
+.btn-outline:hover { background: var(--green-light); }
+.btn-ghost { background: var(--surface); color: var(--muted); border: 1px solid var(--border); }
+.btn-ghost:hover { background: var(--green-mid); color: var(--green); }
+.btn-danger { background: transparent; color: #dc2626; border: 1px solid #fca5a5; }
+.btn-danger:hover { background: #fef2f2; }
+.btn-sm { padding: 6px 12px; font-size: 11px; }
+.btn-xs { padding: 4px 10px; font-size: 11px; }
+
+/* Activity rows */
+.act-row { display: grid; grid-template-columns: 2fr 70px 80px 110px 3fr 30px; gap: 6px; align-items: center; background: var(--surface); border-radius: 10px; padding: 8px 10px; margin-bottom: 6px; border: 1px solid var(--border); }
+.act-row input, .act-row select { background: white; font-size: 13px; padding: 7px 10px; }
+.act-color-dot { width: 12px; height: 12px; border-radius: 50%; flex-shrink: 0; }
+.remove-btn { background: none; border: none; color: var(--faint); cursor: pointer; font-size: 18px; line-height: 1; transition: color .2s; }
+.remove-btn:hover { color: #dc2626; }
+
+/* Image upload zone */
+.upload-zone { border: 2px dashed var(--border); border-radius: 14px; padding: 24px; text-align: center; cursor: pointer; transition: all .2s; background: var(--surface); position: relative; }
+.upload-zone:hover, .upload-zone.dragging { border-color: var(--green); background: var(--green-light); }
+.upload-zone img { width: 100%; height: 180px; object-fit: cover; border-radius: 10px; }
+.upload-zone-empty { display: flex; flex-direction: column; align-items: center; gap: 8px; padding: 16px 0; }
+.upload-icon { font-size: 36px; opacity: 0.4; }
+.upload-label { font-size: 13px; color: var(--muted); }
+.upload-sub { font-size: 11px; color: var(--faint); }
+
+/* JSON upload zone */
+.json-drop-zone { border: 2px dashed var(--border); border-radius: 14px; padding: 20px; text-align: center; cursor: pointer; transition: all .2s; background: var(--surface); }
+.json-drop-zone:hover, .json-drop-zone.dragging { border-color: var(--green); background: var(--green-light); }
+.json-drop-zone.loaded { border-color: var(--green); background: var(--green-light); }
+
+/* JSON preview panel */
+.json-panel { background: #0d1117; border-radius: 14px; overflow: hidden; }
+.json-panel-header { display: flex; align-items: center; justify-content: space-between; padding: 12px 16px; background: #161b22; border-bottom: 1px solid #30363d; }
+.json-panel-title { font-size: 12px; font-weight: 600; color: #8b949e; font-family: 'DM Mono', monospace; }
+.json-panel-actions { display: flex; gap: 6px; }
+.json-content { padding: 16px; max-height: 400px; overflow-y: auto; font-family: 'DM Mono', monospace; font-size: 12px; color: #7ce38b; line-height: 1.8; white-space: pre-wrap; word-break: break-all; }
+.json-content::-webkit-scrollbar { width: 4px; }
+.json-content::-webkit-scrollbar-thumb { background: #30363d; border-radius: 2px; }
+
+/* Flags */
+.flag-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.flag-item { display: flex; align-items: center; gap: 8px; padding: 8px 10px; border-radius: 8px; border: 1px solid var(--border); background: var(--surface); cursor: pointer; transition: all .2s; }
+.flag-item:hover { border-color: var(--green); background: var(--green-light); }
+.flag-item input[type=checkbox] { width: 14px; height: 14px; accent-color: var(--green); }
+.flag-label { font-size: 12px; font-weight: 500; color: var(--text); }
+.flag-sub { font-size: 10px; color: var(--faint); }
+
+/* Community list */
+.routine-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 16px; }
+.routine-card { background: white; border: 1px solid var(--border); border-radius: 16px; overflow: hidden; box-shadow: var(--card-shadow); }
+.routine-card-img { width: 100%; height: 140px; object-fit: cover; background: var(--green-mid); display: flex; align-items: center; justify-content: center; font-size: 32px; }
+.routine-card-body { padding: 14px; }
+.category-tag { display: inline-block; padding: 3px 10px; border-radius: 20px; font-size: 10px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; }
+
+/* Status pills */
+.status { display: inline-flex; align-items: center; gap: 4px; padding: 4px 10px; border-radius: 20px; font-size: 11px; font-weight: 600; }
+.status-success { background: var(--green-mid); color: var(--green); }
+.status-error { background: #fee2e2; color: #dc2626; }
+.status-info { background: #dbeafe; color: #1d4ed8; }
+
+/* Analysis output */
+.analysis-box { background: var(--surface); border-radius: 12px; padding: 14px; border-left: 4px solid var(--green); font-size: 13px; color: var(--text); line-height: 1.7; margin-top: 12px; display: none; }
+
+/* Week questions */
+.q-row { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+.q-week { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--faint); flex-shrink: 0; width: 20px; }
+
+/* Publish bar */
+.publish-bar { background: white; border-top: 1px solid var(--border); position: sticky; bottom: 0; padding: 14px 24px; display: flex; align-items: center; justify-between; gap: 12px; z-index: 100; }
+.publish-bar-inner { max-width: 1100px; margin: 0 auto; width: 100%; display: flex; align-items: center; justify-content: flex-end; gap: 12px; }
+
+/* Toast */
+.toast { position: fixed; bottom: 80px; left: 50%; transform: translateX(-50%); background: var(--text); color: white; padding: 10px 20px; border-radius: 10px; font-size: 13px; font-weight: 500; z-index: 999; opacity: 0; transition: opacity .3s; pointer-events: none; }
+.toast.show { opacity: 1; }
+
+/* Section spacing */
+.main-col > * + * { margin-top: 16px; }
+.side-col > * + * { margin-top: 16px; }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="header-inner">
+    <div style="display:flex;align-items:center;gap:12px">
+      <div class="logo"><span class="p">p</span>aw</div>
+      <span class="admin-badge">Admin</span>
+    </div>
+    <div style="display:flex;gap:8px">
+      <a href="/" class="btn btn-ghost btn-sm">← Back to app</a>
+    </div>
+  </div>
+</header>
+
+<!-- TABS -->
+<div class="container">
+  <div class="tabs">
+    <button class="tab-btn active" onclick="switchTab('create',this)">✦ Create Routine</button>
+    <button class="tab-btn" onclick="switchTab('list',this)">Community Library</button>
+    <button class="tab-btn" onclick="switchTab('upload',this)">↑ Upload JSON</button>
+  </div>
+
+  <!-- ════════════════════════════════════
+       CREATE TAB
+  ════════════════════════════════════ -->
+  <div id="tab-create">
+    <div style="margin-bottom:20px">
+      <h1 style="font-size:28px;font-style:italic;color:var(--text)">Create Community Routine</h1>
+      <p style="color:var(--muted);font-size:14px;margin-top:4px">Build a routine for the community. AI analyses it before publishing. Generates JSON automatically.</p>
+    </div>
+
+    <div class="grid-main">
+      <!-- LEFT COLUMN -->
+      <div class="main-col">
+
+        <!-- Basic info -->
+        <div class="card">
+          <div class="card-title">Basic Information</div>
+          <div class="field">
+            <label>Routine Title *</label>
+            <input id="rTitle" type="text" placeholder="e.g. 40-Day Fajr Consistency System">
+          </div>
+          <div class="grid-2">
+            <div class="field">
+              <label>Goal Category *</label>
+              <select id="rCategory">
+                <option value="">Select category...</option>
+                <option value="spiritual">Spiritual</option>
+                <option value="recovery">Recovery</option>
+                <option value="health">Health & Fitness</option>
+                <option value="learning">Learning</option>
+                <option value="professional">Professional</option>
+                <option value="creative">Creative</option>
+                <option value="travel">Travel</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            <div class="field">
+              <label>Duration (days) *</label>
+              <input id="rDays" type="number" placeholder="30" min="7" max="365" value="30">
+            </div>
+          </div>
+          <div class="field">
+            <label>Goal Statement *</label>
+            <input id="rGoal" type="text" placeholder="The specific transformation this routine creates">
+          </div>
+          <div class="field">
+            <label>Description (shown on community card)</label>
+            <textarea id="rDesc" rows="3" placeholder="Who is this for? What does it achieve? What makes it unique?"></textarea>
+          </div>
+          <div class="grid-2">
+            <div class="field">
+              <label>Author / Source</label>
+              <input id="rAuthor" type="text" placeholder="e.g. PAW Community, Anonymous">
+            </div>
+            <div class="field">
+              <label>Difficulty</label>
+              <select id="rDifficulty">
+                <option value="beginner">Beginner</option>
+                <option value="intermediate" selected>Intermediate</option>
+                <option value="advanced">Advanced</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- Activities -->
+        <div class="card">
+          <div class="card-title">
+            Daily Activities *
+            <button class="btn btn-outline btn-sm" onclick="addActivity()">+ Add activity</button>
+          </div>
+          <!-- Column headers -->
+          <div style="display:grid;grid-template-columns:2fr 70px 80px 110px 3fr 30px;gap:6px;padding:0 10px 6px;font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--faint);font-weight:600">
+            <span>Name</span><span>Time</span><span>Duration</span><span>Type</span><span>Why (specific to goal)</span><span></span>
+          </div>
+          <div id="activitiesList"></div>
+          <p style="font-size:11px;color:var(--faint);margin-top:8px">4–8 activities. The "why" must reference the specific goal — not generic reasons.</p>
+        </div>
+
+        <!-- Check-in questions -->
+        <div class="card">
+          <div class="card-title">
+            Check-in Questions
+            <button class="btn btn-outline btn-sm" onclick="addQuestion()">+ Add question</button>
+          </div>
+          <div id="questionsList"></div>
+          <p style="font-size:11px;color:var(--faint);margin-top:8px">3 questions — one per week phase. Be specific to this goal type, not generic.</p>
+        </div>
+
+        <!-- Benchmark -->
+        <div class="card">
+          <div class="card-title">Success Benchmark</div>
+          <div class="grid-2">
+            <div class="field">
+              <label>Target completion rate (%)</label>
+              <input id="sCompletion" type="number" placeholder="85" min="50" max="100" value="85">
+            </div>
+            <div class="field">
+              <label>Target consistency (%)</label>
+              <input id="sConsistency" type="number" placeholder="80" min="50" max="100" value="80">
+            </div>
+          </div>
+          <div class="field">
+            <label>Week 1 milestone</label>
+            <input id="sMilestone1" type="text" placeholder="What does completing week 1 look like?">
+          </div>
+          <div class="field">
+            <label>Week 2 milestone</label>
+            <input id="sMilestone2" type="text" placeholder="What does building consistency look like?">
+          </div>
+          <div class="field">
+            <label>Week 4 milestone</label>
+            <input id="sMilestone4" type="text" placeholder="What does month 1 completion look like?">
+          </div>
+        </div>
+
+      </div>
+
+      <!-- RIGHT COLUMN -->
+      <div class="side-col">
+
+        <!-- Cover image -->
+        <div class="card">
+          <div class="card-title">Cover Image</div>
+          <div class="upload-zone" id="imageZone"
+            onclick="document.getElementById('imageInput').click()"
+            ondragover="event.preventDefault();this.classList.add('dragging')"
+            ondragleave="this.classList.remove('dragging')"
+            ondrop="handleImageDrop(event)">
+            <div class="upload-zone-empty" id="imageEmpty">
+              <div class="upload-icon">🖼</div>
+              <div class="upload-label">Click or drag image here</div>
+              <div class="upload-sub">PNG, JPG, WEBP · shown on community cards</div>
+            </div>
+            <img id="imagePreview" style="display:none;width:100%;height:180px;object-fit:cover;border-radius:10px">
+          </div>
+          <input type="file" id="imageInput" accept="image/*" style="display:none" onchange="handleImageFile(event)">
+          <input type="hidden" id="imageBase64">
+          <div id="imageInfo" style="margin-top:8px;font-size:11px;color:var(--faint)"></div>
+          <button id="removeImageBtn" onclick="removeImage()" style="display:none;margin-top:8px" class="btn btn-ghost btn-xs">× Remove image</button>
+        </div>
+
+        <!-- JSON Upload card -->
+        <div class="card">
+          <div class="card-title">Upload Existing JSON</div>
+          <div class="json-drop-zone" id="jsonDropZone"
+            onclick="document.getElementById('jsonFileInput').click()"
+            ondragover="event.preventDefault();this.classList.add('dragging')"
+            ondragleave="this.classList.remove('dragging')"
+            ondrop="handleJsonDrop(event)">
+            <div id="jsonDropEmpty" style="padding:12px 0">
+              <div style="font-size:28px;margin-bottom:6px">{ }</div>
+              <div style="font-size:13px;color:var(--muted);font-weight:500">Click or drag JSON file here</div>
+              <div style="font-size:11px;color:var(--faint);margin-top:4px">Fills the form automatically</div>
+            </div>
+            <div id="jsonDropLoaded" style="display:none;padding:8px 0">
+              <div style="font-size:22px;margin-bottom:4px">✓</div>
+              <div style="font-size:13px;color:var(--green);font-weight:600" id="jsonFileName">file.json loaded</div>
+              <div style="font-size:11px;color:var(--muted);margin-top:2px">Form populated — review above</div>
+            </div>
+          </div>
+          <input type="file" id="jsonFileInput" accept=".json" style="display:none" onchange="handleJsonFile(event)">
+        </div>
+
+        <!-- Feature flags -->
+        <div class="card">
+          <div class="card-title">Feature Flags</div>
+          <div class="flag-grid">
+            <label class="flag-item">
+              <input type="checkbox" id="ffPomodoro">
+              <div><div class="flag-label">Pomodoro timer</div><div class="flag-sub">Focus sessions</div></div>
+            </label>
+            <label class="flag-item">
+              <input type="checkbox" id="ffUrgeLog">
+              <div><div class="flag-label">Urge log</div><div class="flag-sub">Recovery goals</div></div>
+            </label>
+            <label class="flag-item">
+              <input type="checkbox" id="ffCountdown" checked>
+              <div><div class="flag-label">Countdown</div><div class="flag-sub">Days remaining</div></div>
+            </label>
+            <label class="flag-item">
+              <input type="checkbox" id="ffSubject">
+              <div><div class="flag-label">Subject tracker</div><div class="flag-sub">Study goals</div></div>
+            </label>
+            <label class="flag-item">
+              <input type="checkbox" id="ffEmergency">
+              <div><div class="flag-label">Emergency chat</div><div class="flag-sub">Crisis support</div></div>
+            </label>
+            <label class="flag-item">
+              <input type="checkbox" id="ffPrayer">
+              <div><div class="flag-label">Prayer times</div><div class="flag-sub">Spiritual goals</div></div>
+            </label>
+          </div>
+        </div>
+
+        <!-- Quote pool -->
+        <div class="card">
+          <div class="card-title">Quote Pool</div>
+          <div class="field">
+            <label>Philosophical anchor</label>
+            <select id="rQuotes">
+              <option value="universal">Universal (all traditions)</option>
+              <option value="quran">Quran</option>
+              <option value="bible">Bible</option>
+              <option value="stoic">Stoic philosophy</option>
+              <option value="sufi">Sufi / Rumi</option>
+              <option value="african">Ethiopian & African proverbs</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- AI analysis -->
+        <div class="card">
+          <div class="card-title">AI Quality Check</div>
+          <p style="font-size:12px;color:var(--muted);margin-bottom:12px;line-height:1.6">Before publishing, let PAW analyse the routine for gaps, unrealistic timing, and missing critical habits.</p>
+          <button onclick="analyseRoutine()" class="btn btn-outline" style="width:100%">
+            <span id="analyseIcon">🔍</span> Analyse routine
+          </button>
+          <div class="analysis-box" id="analysisBox"></div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- JSON Preview (full width) -->
+    <div id="jsonPreviewSection" style="margin-top:20px;display:none">
+      <div class="json-panel">
+        <div class="json-panel-header">
+          <span class="json-panel-title">generated routine.json</span>
+          <div class="json-panel-actions">
+            <button onclick="copyJSON()" class="btn btn-ghost btn-xs" style="color:#8b949e;background:#21262d;border-color:#30363d">Copy</button>
+            <button onclick="downloadJSON()" class="btn btn-ghost btn-xs" style="color:#7ce38b;background:#21262d;border-color:#30363d">↓ Download</button>
+          </div>
+        </div>
+        <div class="json-content" id="jsonOutput"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════
+       COMMUNITY LIST TAB
+  ════════════════════════════════════ -->
+  <div id="tab-list" style="display:none">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:20px">
+      <div>
+        <h1 style="font-size:28px;font-style:italic">Community Library</h1>
+        <p style="color:var(--muted);font-size:14px;margin-top:4px">All published routines users can browse and adapt</p>
+      </div>
+      <button onclick="loadList()" class="btn btn-ghost">↻ Refresh</button>
+    </div>
+    <div class="routine-grid" id="routineGrid">
+      <div style="text-align:center;padding:60px;color:var(--faint);grid-column:1/-1">Loading...</div>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════
+       UPLOAD JSON TAB
+  ════════════════════════════════════ -->
+  <div id="tab-upload" style="display:none">
+    <div style="margin-bottom:20px">
+      <h1 style="font-size:28px;font-style:italic">Upload JSON Routine</h1>
+      <p style="color:var(--muted);font-size:14px;margin-top:4px">Upload a PAW-format JSON file to preview and publish directly</p>
+    </div>
+
+    <div class="grid-main">
+      <div>
+        <!-- Big drop zone -->
+        <div class="card" style="padding:32px;text-align:center">
+          <div class="json-drop-zone" id="bigJsonZone" style="padding:40px"
+            onclick="document.getElementById('bigJsonInput').click()"
+            ondragover="event.preventDefault();this.classList.add('dragging')"
+            ondragleave="this.classList.remove('dragging')"
+            ondrop="handleBigJsonDrop(event)">
+            <div id="bigJsonEmpty">
+              <div style="font-size:48px;margin-bottom:12px">{ }</div>
+              <div style="font-size:16px;color:var(--muted);font-weight:600">Drop your JSON file here</div>
+              <div style="font-size:13px;color:var(--faint);margin-top:6px">or click to browse · PAW routine format</div>
+            </div>
+            <div id="bigJsonLoaded" style="display:none">
+              <div style="font-size:48px;margin-bottom:12px">✓</div>
+              <div style="font-size:16px;color:var(--green);font-weight:600" id="bigFileName">file.json</div>
+              <div style="font-size:13px;color:var(--muted);margin-top:6px">Preview below — publish when ready</div>
+            </div>
+          </div>
+          <input type="file" id="bigJsonInput" accept=".json" style="display:none" onchange="handleBigJsonFile(event)">
+        </div>
+
+        <!-- JSON preview -->
+        <div id="uploadPreviewSection" style="margin-top:16px;display:none">
+          <div class="json-panel">
+            <div class="json-panel-header">
+              <span class="json-panel-title" id="uploadFileName">routine.json</span>
+              <div class="json-panel-actions">
+                <button onclick="copyUploadJSON()" class="btn btn-ghost btn-xs" style="color:#8b949e;background:#21262d;border-color:#30363d">Copy</button>
+                <button onclick="populateFromUpload()" class="btn btn-xs" style="color:#7ce38b;background:#21262d;border:1px solid #7ce38b">→ Edit in form</button>
+              </div>
+            </div>
+            <div class="json-content" id="uploadJsonContent"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Upload info and publish -->
+      <div class="side-col">
+        <div class="card">
+          <div class="card-title">Routine Preview</div>
+          <div id="uploadPreviewCard" style="color:var(--faint);font-size:13px;text-align:center;padding:20px 0">
+            Upload a JSON file to see preview
+          </div>
+        </div>
+        <div class="card" id="uploadPublishCard" style="display:none">
+          <div class="card-title">Publish</div>
+          <button onclick="publishUploaded()" class="btn btn-primary" style="width:100%">
+            Publish to Community
+          </button>
+          <p style="font-size:11px;color:var(--faint);margin-top:8px;text-align:center">Makes this routine available for users to adapt</p>
+        </div>
+        <div class="card">
+          <div class="card-title">Expected JSON Format</div>
+          <div class="json-panel">
+            <div class="json-content" style="max-height:200px;font-size:11px">{ "routine": {
+  "title": "...",
+  "goalStatement": "...",
+  "goalCategory": "...",
+  "totalDays": 30,
+  "activities": [...],
+  "checkInQuestions": [...]
+},
+"standard": {
+  "weeklyTargets": {...},
+  "weeklyMilestones": {...}
+} }</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- STICKY PUBLISH BAR -->
+<div class="publish-bar" id="publishBar">
+  <div class="publish-bar-inner">
+    <div id="formStatus" style="font-size:12px;color:var(--muted)"></div>
+    <button onclick="previewJSON()" class="btn btn-ghost">Preview JSON</button>
+    <button onclick="publishRoutine()" class="btn btn-primary">↑ Publish to Community</button>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<script>
+const BACKEND = 'http://localhost:3000/api'
+const ACT_COLORS = {
+  Spiritual:'#6366f1', Learning:'#f59e0b', Health:'#00602a',
+  Recovery:'#06b6d4', Professional:'#8b5cf6', Creative:'#ec4899', Travel:'#f97316'
+}
+let actCount  = 0
+let qCount    = 0
+let uploadedJSON = null
+
+// ── Toast ─────────────────────────────────────────────────────────
+function toast(msg, dur = 2500) {
+  const t = document.getElementById('toast')
+  t.textContent = msg
+  t.classList.add('show')
+  setTimeout(() => t.classList.remove('show'), dur)
+}
+
+// ── Tabs ──────────────────────────────────────────────────────────
+function switchTab(name, btn) {
+  document.querySelectorAll('[id^="tab-"]').forEach(el => el.style.display = 'none')
+  document.getElementById(`tab-${name}`).style.display = 'block'
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'))
+  if (btn) btn.classList.add('active')
+  // Hide publish bar on non-create tabs
+  document.getElementById('publishBar').style.display = name === 'create' ? 'flex' : 'none'
+  if (name === 'list') loadList()
+}
+
+// ── Activities ────────────────────────────────────────────────────
+function addActivity(data = {}) {
+  actCount++
+  const id  = actCount
+  const div = document.createElement('div')
+  div.className = 'act-row'
+  div.id = `act-${id}`
+  div.innerHTML = `
+    <input class="act-name" placeholder="Activity name" value="${data.name||''}">
+    <input class="act-time" placeholder="06:00" value="${data.time||''}">
+    <input class="act-dur" placeholder="20 min" value="${data.duration||''}">
+    <select class="act-type" onchange="updateDot(${id})">
+      ${['Spiritual','Health','Learning','Recovery','Professional','Creative','Travel']
+        .map(t => `<option${t===data.type?' selected':''}>${t}</option>`).join('')}
+    </select>
+    <input class="act-why" placeholder="Why this, specific to the goal..." value="${(data.why||'').replace(/"/g,'&quot;')}">
+    <button class="remove-btn" onclick="removeAct(${id})">×</button>
+  `
+  // Add inputs styling
+  div.querySelectorAll('input,select').forEach(el => {
+    el.style.cssText = 'background:white;font-size:13px;padding:7px 10px;border:1.5px solid var(--border);border-radius:8px;width:100%;font-family:DM Sans,sans-serif;outline:none'
+  })
+  document.getElementById('activitiesList').appendChild(div)
+  updateDot(id)
+  // Colour dot in type select — add after element exists
+  const sel = div.querySelector('.act-type')
+  if (sel) {
+    sel.style.cursor = 'pointer'
+  }
+}
+
+function removeAct(id) { document.getElementById(`act-${id}`)?.remove() }
+
+function updateDot(id) {
+  const type = document.querySelector(`#act-${id} .act-type`)?.value || 'Health'
+  const sel  = document.querySelector(`#act-${id} .act-type`)
+  if (sel) sel.style.borderColor = ACT_COLORS[type] || '#00602a'
+}
+
+function getActivities() {
+  const acts = []
+  document.querySelectorAll('[id^="act-"]').forEach((row, i) => {
+    const name = row.querySelector('.act-name')?.value?.trim()
+    if (!name) return
+    const type = row.querySelector('.act-type')?.value || 'Health'
+    acts.push({
+      id:         `act_${i+1}`,
+      name,
+      time:       row.querySelector('.act-time')?.value  || '06:00',
+      duration:   row.querySelector('.act-dur')?.value   || '20 min',
+      type,
+      color:      ACT_COLORS[type] || '#00602a',
+      why:        row.querySelector('.act-why')?.value?.trim() || '',
+      daysOfWeek: [1,2,3,4,5,6,7],
+      critical:   true,
+    })
+  })
+  return acts
+}
+
+// ── Questions ─────────────────────────────────────────────────────
+function addQuestion(text = '') {
+  qCount++
+  const id = qCount
+  const div = document.createElement('div')
+  div.className = 'q-row'
+  div.id = `q-${id}`
+  div.innerHTML = `
+    <span class="q-week">W${qCount}</span>
+    <input type="text" placeholder="Check-in question for this week phase..." value="${text.replace(/"/g,'&quot;')}"
+      style="flex:1;background:white;font-size:13px;padding:9px 12px;border:1.5px solid var(--border);border-radius:8px;font-family:DM Sans,sans-serif;outline:none">
+    <button onclick="document.getElementById('q-${id}').remove()" style="background:none;border:none;color:var(--faint);cursor:pointer;font-size:18px;padding:0 4px">×</button>
+  `
+  document.getElementById('questionsList').appendChild(div)
+}
+
+function getQuestions() {
+  const qs = []
+  document.querySelectorAll('[id^="q-"]').forEach(row => {
+    const q = row.querySelector('input')?.value?.trim()
+    if (q) qs.push(q)
+  })
+  return qs
+}
+
+// ── Image handling ────────────────────────────────────────────────
+function handleImageFile(e) { processImageFile(e.target.files[0]) }
+function handleImageDrop(e) {
+  e.preventDefault()
+  document.getElementById('imageZone').classList.remove('dragging')
+  processImageFile(e.dataTransfer.files[0])
+}
+function processImageFile(file) {
+  if (!file || !file.type.startsWith('image/')) return
+  const reader = new FileReader()
+  reader.onload = ev => {
+    document.getElementById('imageBase64').value  = ev.target.result
+    document.getElementById('imageEmpty').style.display   = 'none'
+    document.getElementById('imagePreview').style.display = 'block'
+    document.getElementById('imagePreview').src           = ev.target.result
+    document.getElementById('imageInfo').textContent      = `${file.name} · ${(file.size/1024).toFixed(0)}KB`
+    document.getElementById('removeImageBtn').style.display = 'inline-flex'
+  }
+  reader.readAsDataURL(file)
+}
+function removeImage() {
+  document.getElementById('imageBase64').value  = ''
+  document.getElementById('imagePreview').style.display = 'none'
+  document.getElementById('imageEmpty').style.display   = 'flex'
+  document.getElementById('imageInfo').textContent      = ''
+  document.getElementById('removeImageBtn').style.display = 'none'
+  document.getElementById('imageInput').value = ''
+}
+
+// ── JSON file handling (sidebar upload) ──────────────────────────
+function handleJsonFile(e) { processJsonFile(e.target.files[0], false) }
+function handleJsonDrop(e) {
+  e.preventDefault()
+  document.getElementById('jsonDropZone').classList.remove('dragging')
+  processJsonFile(e.dataTransfer.files[0], false)
+}
+async function processJsonFile(file, bigMode) {
+  if (!file) return
+  const text = await file.text()
+  try {
+    const data = JSON.parse(text)
+    if (bigMode) {
+      uploadedJSON = data
+      document.getElementById('bigJsonEmpty').style.display  = 'none'
+      document.getElementById('bigJsonLoaded').style.display = 'block'
+      document.getElementById('bigFileName').textContent     = file.name
+      document.getElementById('uploadFileName').textContent  = file.name
+      document.getElementById('uploadJsonContent').textContent = JSON.stringify(data, null, 2)
+      document.getElementById('uploadPreviewSection').style.display = 'block'
+      document.getElementById('uploadPublishCard').style.display    = 'block'
+      renderUploadPreview(data)
+    } else {
+      populateFromJSON(data)
+      document.getElementById('jsonDropZone').classList.add('loaded')
+      document.getElementById('jsonDropEmpty').style.display   = 'none'
+      document.getElementById('jsonDropLoaded').style.display  = 'block'
+      document.getElementById('jsonFileName').textContent      = file.name
+      toast('✓ JSON loaded — form populated')
+    }
+  } catch {
+    toast('✗ Invalid JSON file')
+  }
+}
+
+// Big upload zone
+function handleBigJsonFile(e) { processJsonFile(e.target.files[0], true) }
+function handleBigJsonDrop(e) {
+  e.preventDefault()
+  document.getElementById('bigJsonZone').classList.remove('dragging')
+  processJsonFile(e.dataTransfer.files[0], true)
+}
+function copyUploadJSON() {
+  navigator.clipboard.writeText(document.getElementById('uploadJsonContent').textContent)
+  toast('Copied!')
+}
+function populateFromUpload() {
+  if (uploadedJSON) { populateFromJSON(uploadedJSON); switchTab('create') }
+}
+async function publishUploaded() {
+  if (!uploadedJSON) return
+  await publishJSON(uploadedJSON)
+}
+
+function renderUploadPreview(data) {
+  const r = data.routine || data
+  document.getElementById('uploadPreviewCard').innerHTML = `
+    <div style="text-align:left">
+      <div style="font-family:'Playfair Display',serif;font-style:italic;font-size:18px;color:var(--text);margin-bottom:4px">${r.title||'Untitled'}</div>
+      <div style="font-size:12px;color:var(--muted);margin-bottom:10px">${r.goalCategory||''} · ${r.totalDays||30} days</div>
+      <div style="font-size:13px;color:var(--text);line-height:1.6;margin-bottom:10px">${r.goalStatement||''}</div>
+      <div style="font-size:11px;color:var(--faint)">${(r.activities||[]).length} activities · ${(r.checkInQuestions||[]).length} check-in questions</div>
+    </div>`
+}
+
+// ── Populate form from JSON ───────────────────────────────────────
+function populateFromJSON(data) {
+  const r = data.routine || data
+  const s = data.standard || {}
+  if (r.title)         document.getElementById('rTitle').value    = r.title
+  if (r.goalStatement) document.getElementById('rGoal').value     = r.goalStatement
+  if (r.goalCategory)  document.getElementById('rCategory').value = r.goalCategory
+  if (r.totalDays)     document.getElementById('rDays').value     = r.totalDays
+  if (r.description)   document.getElementById('rDesc').value     = r.description
+  if (r.author)        document.getElementById('rAuthor').value   = r.author
+  if (r.quotePool)     document.getElementById('rQuotes').value   = r.quotePool
+  if (r.difficulty)    document.getElementById('rDifficulty').value = r.difficulty
+
+  // Feature flags
+  if (r.featureFlags) {
+    document.getElementById('ffPomodoro').checked = !!r.featureFlags.pomodoroTimer
+    document.getElementById('ffUrgeLog').checked  = !!r.featureFlags.urgeLog
+    document.getElementById('ffCountdown').checked = !!r.featureFlags.countdownVisible
+    document.getElementById('ffSubject').checked   = !!r.featureFlags.subjectTracker
+    document.getElementById('ffEmergency').checked = !!r.featureFlags.emergencyChat
+    document.getElementById('ffPrayer').checked    = !!r.featureFlags.prayerTimes
+  }
+
+  // Activities
+  document.getElementById('activitiesList').innerHTML = ''
+  actCount = 0
+  ;(r.activities || []).forEach(a => addActivity(a))
+
+  // Questions
+  document.getElementById('questionsList').innerHTML = ''
+  qCount = 0
+  ;(r.checkInQuestions || []).forEach(q => addQuestion(q))
+
+  // Benchmark
+  if (s.weeklyTargets) {
+    document.getElementById('sCompletion').value  = s.weeklyTargets.completionRate   || 85
+    document.getElementById('sConsistency').value = s.weeklyTargets.consistencyScore || 80
+  }
+  if (s.weeklyMilestones) {
+    document.getElementById('sMilestone1').value = s.weeklyMilestones.week1 || ''
+    document.getElementById('sMilestone2').value = s.weeklyMilestones.week2 || ''
+    document.getElementById('sMilestone4').value = s.weeklyMilestones.week4 || ''
+  }
+
+  // Cover image
+  if (r.coverImage) {
+    document.getElementById('imageBase64').value            = r.coverImage
+    document.getElementById('imagePreview').src             = r.coverImage
+    document.getElementById('imagePreview').style.display   = 'block'
+    document.getElementById('imageEmpty').style.display     = 'none'
+    document.getElementById('removeImageBtn').style.display = 'inline-flex'
+  }
+}
+
+// ── Build JSON ────────────────────────────────────────────────────
+function buildJSON() {
+  const title    = document.getElementById('rTitle').value.trim()
+  const goal     = document.getElementById('rGoal').value.trim()
+  const category = document.getElementById('rCategory').value
+  if (!title || !goal || !category) {
+    toast('✗ Fill in Title, Goal, and Category')
+    return null
+  }
+  const activities = getActivities()
+  if (activities.length < 2) { toast('✗ Add at least 2 activities'); return null }
+
+  const routine = {
+    title, goalStatement: goal, goalCategory: category,
+    description:  document.getElementById('rDesc').value.trim(),
+    author:       document.getElementById('rAuthor').value.trim() || 'PAW Community',
+    difficulty:   document.getElementById('rDifficulty').value,
+    totalDays:    parseInt(document.getElementById('rDays').value) || 30,
+    startDate:    new Date().toISOString().split('T')[0],
+    featureFlags: {
+      pomodoroTimer:    document.getElementById('ffPomodoro').checked,
+      urgeLog:          document.getElementById('ffUrgeLog').checked,
+      countdownVisible: document.getElementById('ffCountdown').checked,
+      subjectTracker:   document.getElementById('ffSubject').checked,
+      emergencyChat:    document.getElementById('ffEmergency').checked,
+      prayerTimes:      document.getElementById('ffPrayer').checked,
+    },
+    activities,
+    checkInQuestions: getQuestions(),
+    quotePool:        document.getElementById('rQuotes').value,
+    communityFilter:  category,
+    coverImage:       document.getElementById('imageBase64').value || null,
+    generatedAt:      new Date().toISOString(),
+    source:           'admin',
+  }
+
+  const standard = {
+    description:   `Ideal execution of: ${title}`,
+    weeklyTargets: {
+      completionRate:   parseInt(document.getElementById('sCompletion').value)  || 85,
+      consistencyScore: parseInt(document.getElementById('sConsistency').value) || 80,
+    },
+    moduleTargets:   { 'health.sleep_hours': '> 7', 'screen_time.passive_minutes': '< 60' },
+    scoringWeights:  { completion: 0.5, timing: 0.2, modules: 0.3 },
+    weeklyMilestones: {
+      week1: document.getElementById('sMilestone1').value || `Establish core habits of ${title}`,
+      week2: document.getElementById('sMilestone2').value || 'Build consistency and momentum',
+      week4: document.getElementById('sMilestone4').value || 'Routine feels natural and sustainable',
+    },
+    activities,
+  }
+
+  return { routine, standard }
+}
+
+// ── Preview ───────────────────────────────────────────────────────
+function previewJSON() {
+  const data = buildJSON()
+  if (!data) return
+  document.getElementById('jsonPreviewSection').style.display = 'block'
+  document.getElementById('jsonOutput').textContent = JSON.stringify(data, null, 2)
+  document.getElementById('jsonPreviewSection').scrollIntoView({ behavior: 'smooth' })
+}
+
+function copyJSON() {
+  navigator.clipboard.writeText(document.getElementById('jsonOutput').textContent)
+  toast('Copied to clipboard!')
+}
+
+function downloadJSON() {
+  const raw   = document.getElementById('jsonOutput').textContent
+  const title = document.getElementById('rTitle').value.trim().toLowerCase().replace(/\s+/g,'-') || 'routine'
+  const blob  = new Blob([raw], { type:'application/json' })
+  const a     = document.createElement('a')
+  a.href      = URL.createObjectURL(blob)
+  a.download  = `paw-${title}.json`
+  a.click()
+  toast('Downloaded!')
+}
+
+// ── AI Analysis ───────────────────────────────────────────────────
+async function analyseRoutine() {
+  const data = buildJSON()
+  if (!data) return
+  const box  = document.getElementById('analysisBox')
+  const icon = document.getElementById('analyseIcon')
+  box.style.display = 'block'
+  box.textContent   = 'Analysing...'
+  icon.textContent  = '⏳'
+  try {
+    const res  = await fetch(`${BACKEND}/chat`, {
+      method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        message: `Analyse this PAW routine critically. Check: evidence-base, timing realism, activity sequencing, missing habits, and main failure risk. Be specific, under 120 words.\n\n${JSON.stringify(data.routine)}`,
+        sessionId: 'admin-analysis'
+      })
+    })
+    const result = await res.json()
+    box.textContent = result.reply || result.error || 'No response from server'
+  } catch { box.textContent = 'Cannot reach PAW backend. Is Termux server running?' }
+  icon.textContent = '🔍'
+}
+
+// ── Publish ───────────────────────────────────────────────────────
+async function publishRoutine() {
+  const data = buildJSON()
+  if (!data) return
+  await publishJSON(data)
+}
+
+async function publishJSON(data) {
+  const r = data.routine || data
+  try {
+    const res = await fetch(`${BACKEND}/community`, {
+      method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        category:    r.goalCategory,
+        title:       r.title,
+        description: r.description,
+        author:      r.author,
+        difficulty:  r.difficulty,
+        weeks:       Math.ceil(r.totalDays / 7),
+        quote:       r.checkInQuestions?.[0] || r.description || '',
+        blocks:      r.activities.map(() => 1),
+        coverImage:  r.coverImage || null,
+        routineJSON: data,
+        source:      'admin',
+      })
+    })
+    if (res.ok) {
+      toast(`✓ "${r.title}" published!`)
+      previewJSON()
+    } else {
+      toast('✗ Failed — check server logs')
+    }
+  } catch { toast('✗ Cannot reach server') }
+}
+
+// ── Community list ────────────────────────────────────────────────
+async function loadList() {
+  const grid = document.getElementById('routineGrid')
+  grid.innerHTML = '<div style="text-align:center;padding:60px;color:var(--faint);grid-column:1/-1">Loading...</div>'
+  try {
+    const res   = await fetch(`${BACKEND}/community`)
+    const posts = await res.json()
+    window._posts = posts
+    if (!posts.length) {
+      grid.innerHTML = '<div style="text-align:center;padding:60px;color:var(--faint);grid-column:1/-1">No routines yet. Create one in the Create tab.</div>'
+      return
+    }
+    const catColor = { spiritual:'#6366f1', recovery:'#06b6d4', health:'#00602a', learning:'#f59e0b', professional:'#8b5cf6', creative:'#ec4899', travel:'#f97316' }
+    grid.innerHTML = posts.map((p, i) => `
+      <div class="routine-card">
+        <div class="routine-card-img" style="background:${catColor[p.category]||'#00602a'}20">
+          ${p.coverImage ? `<img src="${p.coverImage}" style="width:100%;height:100%;object-fit:cover">` : `<span style="font-size:32px">${catEmoji(p.category)}</span>`}
+        </div>
+        <div class="routine-card-body">
+          <div style="display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:8px">
+            <span class="category-tag" style="background:${catColor[p.category]||'#00602a'}15;color:${catColor[p.category]||'#00602a'}">${p.category||'general'}</span>
+            <span style="font-size:11px;color:var(--faint)">${p.weeks||'?'}w · ${p.difficulty||''}</span>
+          </div>
+          <div style="font-family:'Playfair Display',serif;font-style:italic;font-size:17px;color:var(--text);margin-bottom:4px">${p.title||p.category}</div>
+          <div style="font-size:11px;color:var(--faint);margin-bottom:8px">${p.author||'PAW Community'}</div>
+          <p style="font-size:12px;color:var(--muted);line-height:1.6;margin-bottom:12px">${(p.description||p.quote||'').slice(0,120)}${(p.description||'').length>120?'...':''}</p>
+          <div style="display:flex;gap:6px">
+            <button onclick="viewPost(${i})" class="btn btn-outline btn-xs" style="flex:1">View JSON</button>
+            <button onclick="editPost(${i})" class="btn btn-ghost btn-xs" style="flex:1">Edit</button>
+          </div>
+        </div>
+      </div>`).join('')
+  } catch { grid.innerHTML = '<div style="text-align:center;padding:60px;color:var(--faint);grid-column:1/-1">Cannot reach server</div>' }
+}
+
+function catEmoji(cat) {
+  const m = { spiritual:'🌙', recovery:'💧', health:'🏃', learning:'📚', professional:'💼', creative:'🎨', travel:'🌍' }
+  return m[cat] || '✦'
+}
+
+function viewPost(i) {
+  const p = window._posts?.[i]
+  if (!p?.routineJSON) return toast('No JSON stored for this post')
+  switchTab('upload')
+  document.getElementById('bigJsonEmpty').style.display    = 'none'
+  document.getElementById('bigJsonLoaded').style.display   = 'block'
+  document.getElementById('bigFileName').textContent       = p.title || 'routine.json'
+  document.getElementById('uploadFileName').textContent    = p.title || 'routine.json'
+  document.getElementById('uploadJsonContent').textContent = JSON.stringify(p.routineJSON, null, 2)
+  document.getElementById('uploadPreviewSection').style.display = 'block'
+  document.getElementById('uploadPublishCard').style.display    = 'none'
+  uploadedJSON = p.routineJSON
+  renderUploadPreview(p.routineJSON)
+}
+
+function editPost(i) {
+  const p = window._posts?.[i]
+  if (!p?.routineJSON) return toast('No JSON for this post')
+  populateFromJSON(p.routineJSON)
+  switchTab('create')
+  toast('Loaded for editing — make changes and republish')
+}
+
+// ── Init ──────────────────────────────────────────────────────────
+addActivity()
+addActivity()
+addActivity()
+addActivity()
+addQuestion()
+addQuestion()
+addQuestion()
+</script>
+</body>
+</html>
