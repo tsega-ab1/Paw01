@@ -1,6 +1,7 @@
 {
   "name": "paw-backend",
   "version": "1.0.0",
+  "description": "PAW Life OS — agentic backend",
   "main": "src/index.js",
   "scripts": {
     "start": "node src/index.js",

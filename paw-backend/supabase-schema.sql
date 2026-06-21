@@ -1,1 +1,1 @@
--- TODO: your 7 tables, RLS policies, indexes
+-- TODO: Add your 7 tables, RLS policies, and indexes here
