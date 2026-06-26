@@ -1,7 +1,6 @@
 {
-  "name": "paw-server",
+  "name": "paw-pipeline-server",
   "version": "1.0.0",
-  "description": "PAW pipeline server",
   "main": "dist/paw-server.js",
   "scripts": {
     "build": "tsc",
@@ -9,12 +8,14 @@
     "dev": "tsc && node dist/paw-server.js"
   },
   "license": "ISC",
+  "dependencies": {
+    "express": "^4.22.2",
+    "cors": "^2.8.5"
+  },
   "devDependencies": {
-    "@types/cors": "^2.8.19",
     "@types/express": "^4.17.25",
-    "@types/node": "^20.19.43",
-    "cors": "^2.8.6",
-    "express": "^5.2.1",
+    "@types/cors": "^2.8.17",
+    "@types/node": "^20",
     "typescript": "^5.9.3"
   }
 }

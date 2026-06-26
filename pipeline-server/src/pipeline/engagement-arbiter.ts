@@ -112,10 +112,16 @@ export class EngagementArbiter {
       const assignment = userAssignments.get(moduleId);
       if (!module || !assignment) continue;
 
+      const riskAssessment = assessRisk(snapshot);
+      const effectivePipelineType: PipelineContext['pipelineType'] =
+        riskAssessment.level === 'HIGH' && assignment.pipelineType === 'HIERARCHICAL_CASCADE'
+          ? 'PREDICTIVE_PREEMPTIVE'
+          : assignment.pipelineType;
+
       const result = await this.engine.execute({
         userId,
         activeModuleIds: [moduleId],
-        pipelineType: assignment.pipelineType,
+        pipelineType: effectivePipelineType,
         tier: assignment.tier,
         contextSnapshot: snapshot,
       });
@@ -125,7 +131,7 @@ export class EngagementArbiter {
         priorityTier: assignment.priorityTier ?? module.priorityTier,
         urgency: this.estimateUrgency(result),
         result,
-        riskAssessment: assessRisk(snapshot),
+        riskAssessment,
       });
     }
 
